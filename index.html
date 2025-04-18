@@ -1323,41 +1323,40 @@
         </button>
         <p id="form-status" class="text-sm text-center mt-4"></p>
     </form>
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        // Initialize EmailJS with your User ID
-        (function(){
-            emailjs.init("wdJpeSaNocKPgg2nw"); // Replace with your EmailJS User ID (e.g., user_abcdef123)
-        })();
+        <!-- EmailJS SDK -->
+                <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+                <script>
+                    (function(){
+                        emailjs.init("wdJpeSaNocKPgg2nw");
+                    })();
 
-        function sendEmail(event) {
-            event.preventDefault(); // Prevent default form submission
+                    function sendEmail(event) {
+                        event.preventDefault();
+                        console.log("Form submitted");
 
-            // Get form data
-            const form = document.getElementById('contact-form');
-            const formStatus = document.getElementById('form-status');
-            const formData = {
-                name: form.querySelector('#name').value,
-                email: form.querySelector('#email').value,
-                subject: form.querySelector('#subject').value,
-                message: form.querySelector('#message').value
-            };
+                        const form = document.getElementById('contact-form');
+                        const formStatus = document.getElementById('form-status');
+                        const formData = {
+                            from_name: form.querySelector('#name').value,
+                            from_email: form.querySelector('#email').value,
+                            subject: form.querySelector('#subject').value,
+                            message: form.querySelector('#message').value
+                        };
 
-            // Send email via EmailJS
-            emailjs.send("service_oel0Az7", "template_ir8pfqt", formData)
-                .then(function(response) {
-                    formStatus.textContent = "Message sent successfully!";
-                    formStatus.className = "text-sm text-center mt-4 text-green-600";
-                    form.reset(); // Clear the form
-                }, function(error) {
-                    formStatus.textContent = "Failed to send message. Please try again.";
-                    formStatus.className = "text-sm text-center mt-4 text-red-600";
-                    console.error("EmailJS error:", error);
-                });
-        }
-    </script>
-</div>
+                        emailjs.send("service_oel0Az7", "template_ir8pfqt", formData)
+                            .then(function() {
+                                formStatus.textContent = "Message sent successfully!";
+                                formStatus.className = "text-sm text-center mt-4 text-green-600";
+                                form.reset();
+                            }, function(error) {
+                                formStatus.textContent = "Failed to send message: " + error.text;
+                                formStatus.className = "text-sm text-center mt-4 text-red-600";
+                            });
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
          </section>
 
 
