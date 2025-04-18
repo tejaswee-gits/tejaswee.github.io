@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Updated Title for Combined Page -->
+    <title>Tejaswee Singh | Digital Marketing Portfolio & Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Combined Styles from Both Pages --- */
+
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc; /* Lighter gray background */
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Gradient & Backgrounds */
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .animated-bg { /* From Home */
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; /* Behind content */
+        }
+        .animated-bg-circle { /* From Home */
+            position: absolute; border-radius: 50%; background: rgba(59, 130, 246, 0.1); animation: float 15s infinite linear;
+        }
+        .disney-bg { background: url('https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80') center/cover; }
+        .calcifer-bg { background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover; }
+        .wargaming-bg { background: url('https://images.unsplash.com/photo-1542751375-ad40-9739e1ab1f0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover; }
+        .f1-bg { background: url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover; }
+        .loreal-bg { background: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover; }
+
+        /* Typography & Titles */
+        .section-title { /* From Home */
+            font-family: 'Playfair Display', serif; position: relative; display: inline-block;
+        }
+        .section-title:after { /* From Home */
+            content: ''; position: absolute; left: 0; bottom: -8px; width: 50px; height: 3px; background: #3b82f6;
+        }
+
+        /* Card Styles */
+        .experience-card { /* From Home */
+            transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); background: white; border-radius: 0.75rem; overflow: hidden;
+        }
+        .experience-card:hover { /* From Home */
+            transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .project-summary-card { /* For the clickable summary cards */
+            background: white; border-radius: 0.75rem; overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Slightly more prominent shadow */
+            transition: all 0.3s ease; cursor: pointer; border: 1px solid #e5e7eb; /* Light border */
+        }
+        .project-summary-card:hover {
+             transform: translateY(-6px) scale(1.01); /* More lift */
+             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        }
+         .project-detail-card { /* Style for the DETAILED project cards when shown */
+            transition: all 0.3s ease;
+            perspective: 1000px;
+            position: relative;
+            overflow: hidden;
+            background: white; border-radius: 0.75rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Clear shadow for focus */
+            margin-bottom: 2rem; /* Space below detailed card */
+            border: 1px solid #d1d5db; /* Slightly stronger border */
+        }
+        .project-detail-card:hover { /* subtle hover on detail */
+             box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        .project-image { /* For detailed view images */
+            height: 250px; background-size: cover; background-position: center;
+        }
+        .project-content { /* Padding for detailed view */
+            padding: 2rem;
+        }
+        .glass-card { /* From Projects - Can be used if needed */
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Tags & Pills */
+        .skill-tag { /* From Projects */
+            transition: all 0.3s ease; position: relative; overflow: hidden;
+             display: inline-block; background-color: #e0f2fe; /* Lighter blue */ color: #0c4a6e; /* Darker blue text */
+             padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; margin: 2px;
+             font-weight: 500;
+        }
+        .skill-tag:hover {
+             background-color: #bae6fd; /* Slightly darker on hover */
+        }
+         .pdf-badge { /* From Projects */
+             transition: all 0.3s ease; display: inline-block; cursor: pointer;
+              background-color: #dbeafe; color: #1e40af; padding: 0.25rem 0.75rem;
+              border-radius: 9999px; font-size: 0.75rem; font-weight: 500;
+        }
+         .pdf-badge:hover {
+             transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); background-color: #bfdbfe;
+        }
+        .project-summary-tag { /* Specific tag for summary cards */
+            display: inline-block; background: rgba(59, 130, 246, 0.1); /* Transparent blue */
+            color: #1e40af; padding: 2px 8px; border-radius: 4px; margin-right: 5px; margin-bottom: 5px;
+            font-size: 11px; font-weight: 500; backdrop-filter: blur(2px);
+        }
+
+
+        /* Timeline */
+        .timeline-item { /* From Home / Projects */
+            position: relative; padding-left: 2rem; padding-bottom: 1rem;
+        }
+        .timeline-item:before { /* From Home / Projects */
+            content: ''; position: absolute; left: 0; top: 8px; width: 12px; height: 12px;
+            border-radius: 50%; background: #3b82f6; border: 2px solid white;
+            box-shadow: 0 0 0 3px #3b82f6; /* Outer ring */
+        }
+        .timeline-item:after { /* From Home / Projects */
+            content: ''; position: absolute; left: 5px; top: 20px; width: 2px;
+            height: calc(100% - 12px); /* Adjusted */ background: #e5e7eb;
+        }
+        .timeline-item:last-child:after { display: none; }
+
+
+        /* Navigation */
+        .nav-link { /* From Home */
+            position: relative; text-decoration: none; color: #374151; /* Default gray */
+             transition: color 0.3s ease;
+        }
+        .nav-link:after { /* From Home */
+            content: ''; position: absolute; left: 0; bottom: -4px; /* Lower underline */ width: 0; height: 2px;
+            background: #3b82f6; transition: width 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active { color: #3b82f6; /* Blue on hover/active */ }
+        .nav-link:hover:after, .nav-link.active:after { width: 100%; }
+
+        /* AI Assistant */
+        .assistant-container { /* From Home */
+             position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+        }
+        .assistant-button { /* From Home */
+             width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+             color: white; display: flex; align-items: center; justify-content: center;
+             box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3); cursor: pointer; transition: all 0.3s ease;
+        }
+        .assistant-button:hover { transform: scale(1.1); }
+        .assistant-chat { /* From Home */
+             position: absolute; bottom: 80px; right: 0; width: 350px; background: white; border-radius: 15px;
+             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); overflow: hidden; display: none;
+             transform-origin: bottom right; transition: all 0.3s ease-out; /* Smooth transition */ transform: scale(0.9) translateY(10px); opacity: 0;
+        }
+        .assistant-chat.active { /* From Home */
+            display: block; transform: scale(1) translateY(0); opacity: 1;
+        }
+        /* Add other assistant styles here if needed */
+        .chat-header { background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-body { height: 300px; overflow-y: auto; padding: 15px; background: #f9fafb; }
+        .message { margin-bottom: 10px; max-width: 80%; padding: 10px 15px; border-radius: 18px; font-size: 14px; line-height: 1.4; }
+        .bot-message { background: #e5e7eb; color: #111827; border-bottom-left-radius: 5px; align-self: flex-start; }
+        .user-message { background: #3b82f6; color: white; border-bottom-right-radius: 5px; margin-left: auto; }
+        .chat-input { display: flex; padding: 10px; border-top: 1px solid #e5e7eb; background: white; }
+        .chat-input input { flex: 1; border: 1px solid #e5e7eb; border-radius: 20px; padding: 10px 15px; outline: none; }
+        .chat-input button { background: #3b82f6; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; margin-left: 10px; cursor: pointer; }
+
+
+        /* Value Calculator */
+        .calculator-container { /* From Home */
+             background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); margin-top: 30px; border: 1px solid #e5e7eb;
+        }
+        /* Add other calculator styles here */
+         .calculator-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 20px; color: #1e3a8a; }
+        .calculator-input { margin-bottom: 15px; }
+        .calculator-input label { display: block; margin-bottom: 5px; font-weight: 500; font-size: 0.875rem; color: #4b5563;}
+        .calculator-input input, .calculator-input select { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 8px; outline-none; transition: border-color 0.3s, box-shadow 0.3s; }
+        .calculator-input input:focus, .calculator-input select:focus { border-color: #3b82f6; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2); }
+        .calculator-result { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 15px; border-radius: 8px; margin-top: 20px; display: none; }
+        .calculator-result h3 { font-weight: 600; margin-bottom: 10px; color: #1e40af;}
+        .fun-result { display: none; margin-top: 20px; padding: 15px; border-radius: 8px; background: #f0f9ff; border-left: 4px solid #3b82f6; }
+
+        /* Animations */
+        @keyframes float { /* From Home */
+            0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); }
+        }
+        .floating { animation: float 3s ease-in-out infinite; }
+        @keyframes pulse { /* From Home */
+            0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); }
+        }
+        .pulse { animation: pulse 2s infinite; }
+         @keyframes fadeIn { /* From Projects */
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+         .project-detail-card.active { /* Apply fade in to active detail card */
+             animation: fadeIn 0.5s ease-out forwards;
+         }
+
+        /* Misc */
+        .scrollbar-hide::-webkit-scrollbar { display: none; } /* Hide scrollbar */
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+    </style>
+</head>
+<body class="relative"> <!-- Added relative for absolute positioned elements -->
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="animated-bg-circle" style="width: 300px; height: 300px; top: -50px; left: -50px; animation-delay: 0s;"></div>
+        <div class="animated-bg-circle" style="width: 200px; height: 200px; top: 20%; right: -50px; animation-delay: 2s;"></div>
+        <div class="animated-bg-circle" style="width: 250px; height: 250px; bottom: -50px; left: 20%; animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b border-gray-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold text-blue-700 hover:text-blue-800 transition duration-300">TEJASWEE SINGH</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <!-- Added active class dynamically via JS if needed, or manually set for default view -->
+                    <a href="#about" class="nav-link text-gray-700">About</a>
+                    <a href="#experience" class="nav-link text-gray-700">Experience</a>
+                    <a href="#projects" class="nav-link text-gray-700">Projects</a>
+                    <a href="#value" class="nav-link text-gray-700">My Value</a>
+                    <a href="#skills" class="nav-link text-gray-700">Skills</a>
+                    <a href="#contact" class="nav-link text-gray-700">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-blue-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+         <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-md absolute w-full">
+            <a href="#about" class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50">About</a>
+            <a href="#experience" class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50">Experience</a>
+            <a href="#projects" class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50">Projects</a>
+            <a href="#value" class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50">My Value</a>
+             <a href="#skills" class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50">Skills</a>
+            <a href="#contact" class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient pt-28 pb-20 text-white relative overflow-hidden z-10"> <!-- Ensure hero is above bg -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"> <!-- Text above bg -->
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">Tejaswee Singh</h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-blue-100">Digital Marketing & E-commerce Strategist</h2>
+                    <p class="text-lg mb-8 max-w-xl mx-auto md:mx-0 text-blue-50">Passionate graduate leveraging data-driven insights and cross-functional experience to drive digital growth and brand visibility.</p>
+                    <div class="flex space-x-4 justify-center md:justify-start">
+                        <a href="#contact" class="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">Contact Me</a>
+                        <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-700 transition duration-300 transform hover:-translate-y-1">View Projects</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                         <!-- Profile image -->
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 overflow-hidden border-4 border-white shadow-xl floating">
+                            <!-- MAKE SURE this image path is correct! -->
+                            <img src="placeholder-profile.jpg" alt="Tejaswee Singh" class="w-full h-full object-cover">
+                        </div>
+                         <!-- Floating icon -->
+                        <div class="absolute -bottom-5 -right-5 bg-white rounded-full p-3 shadow-lg pulse z-20">
+                            <div class="bg-blue-100 rounded-full p-3 flex items-center justify-center">
+                                <i class="fas fa-chart-line text-blue-600 text-2xl"></i> <!-- Example: Growth icon -->
+                            </div>
+                        </div>
+                         <!-- Optional: Add another small element for visual interest -->
+                         <div class="absolute -top-5 -left-5 bg-white rounded-full p-2 shadow-md opacity-80" style="animation: float 4s ease-in-out infinite reverse;">
+                              <i class="fas fa-lightbulb text-yellow-500 text-lg"></i> <!-- Example: Idea icon -->
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Sections -->
+    <main class="relative z-10"> <!-- Ensure main content is above bg -->
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold mb-12 section-title">About Me</h2>
+                <div class="flex flex-col lg:flex-row items-center">
+                    <div class="lg:w-2/3 mb-10 lg:mb-0 lg:pr-16">
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Strategist. Analyst. Growth Driver.</h3>
+                        <p class="text-gray-700 mb-6 leading-relaxed">
+                           I'm a recent Master's graduate specializing in Digital Marketing and E-commerce, armed with international experience from leading companies like L'Oréal and Nissan. My passion lies in transforming data into actionable strategies that boost online presence, optimize user experience, and drive measurable business results.
+                        </p>
+                        <p class="text-gray-700 mb-8 leading-relaxed">
+                            From developing D2C platforms and managing influencer campaigns to analyzing competitive landscapes and optimizing e-commerce funnels, I thrive in dynamic environments. I'm eager to bring my blend of analytical rigor, creative thinking, and collaborative spirit to a forward-thinking team.
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                            <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 text-center flex-1 min-w-[120px]">
+                                <div class="text-3xl font-bold text-blue-600">5+</div>
+                                <div class="text-sm text-gray-600 mt-1">Key Projects</div>
+                            </div>
+                             <div class="bg-green-50 border border-green-100 rounded-lg p-4 text-center flex-1 min-w-[120px]">
+                                <div class="text-3xl font-bold text-green-600">2+</div>
+                                <div class="text-sm text-gray-600 mt-1">Years Experience</div>
+                             </div>
+                            <div class="bg-purple-50 border border-purple-100 rounded-lg p-4 text-center flex-1 min-w-[120px]">
+                                <div class="text-3xl font-bold text-purple-600">3</div>
+                                <div class="text-sm text-gray-600 mt-1">Languages</div>
+                            </div>
+                             <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-4 text-center flex-1 min-w-[120px]">
+                                <div class="text-3xl font-bold text-yellow-600">100%</div>
+                                <div class="text-sm text-gray-600 mt-1">Committed</div>
+                            </div>
+                        </div>
+                         <div class="mt-10">
+                            <h4 class="font-semibold mb-3 text-gray-800">Currently Seeking:</h4>
+                            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-lg p-5 shadow-sm">
+                                <p class="text-indigo-900 font-medium text-center md:text-left">
+                                    <i class="fas fa-briefcase mr-2 text-indigo-600"></i> Exciting entry/junior-level roles in <strong>Digital Marketing, E-commerce Strategy, Product Marketing, or Business Analytics</strong> starting in 2024. Open to opportunities globally.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="lg:w-1/3">
+                         <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Collaborative Work Environment" class="rounded-xl shadow-lg w-full object-cover max-h-[500px]">
+                     </div>
+                </div>
+            </div>
+        </section>
+
+
+     <!-- ===================================================================== -->
+     <!--   Experience Section - COPIED FROM PREVIOUS WEBSITE CODE          -->
+     <!-- ===================================================================== -->
+     <section id="experience" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-16 text-center section-title">Professional Journey</h2>
+
+              <!-- L'Oreal Card - Using EXACT Structure & Classes from Previous -->
+                         <!-- L'Oreal Card -->
+            <div class="experience-card bg-white rounded-xl overflow-hidden mb-8">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/4 bg-gradient-to-br from-blue-500 to-blue-700 p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white p-4 rounded-lg inline-block mb-4">
+                                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Cosmetics" class="h-32 w-full object-cover rounded-lg">
+                            </div>
+                            <p class="text-white font-medium">Sep 2023 - Sep 2024</p>
+                            <p class="text-blue-100">Paris, France</p>
+                        </div>
+                    </div>
+                    <div class="md:w-3/4 p-8">
+                        <h3 class="text-2xl font-bold mb-2">L'Oréal Paris (L'Oréal Group) </h3>
+                        <h4 class="text-xl text-blue-600 font-semibold mb-5">E-Commerce & Advocacy Junior Manager (Apprenticeship) | Europe Zone</h4>
+                        
+                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6 mb-6">
+                                <div>
+                                    <h5 class="font-semibold mb-2 text-gray-800 flex items-center"><i class="fas fa-chart-line mr-2 text-blue-500 fa-fw"></i> E-commerce Performance</h5>
+                                    <ul class="list-disc pl-6 space-y-1 text-gray-700 text-sm">
+                                    <li>Contributed to online growth strategies on Amazon Europe across multiple categories</li>
+                                    <li>Assisted in redesigning e-commerce strategy for EU markets through data analysis</li>
+                                    <li>Improved Product Detail Page (PDP) effectiveness by 30% via competitor benchmarking</li>
+                                </ul>
+                            </div>
+                            <div>
+                               <h5 class="font-semibold mb-2 text-gray-800 flex items-center"><i class="fas fa-users mr-2 text-blue-500 fa-fw"></i> Advocacy & Influencer Marketing</h5>
+                                    <ul class="list-disc pl-6 space-y-1 text-gray-700 text-sm">
+                                    <li>Elevated L'Oréal Paris's Advocacy ranking from #3 to #1 in Europe within one year.</li>
+                                    <li>Helped coordinate content strategy to enhance brand visibility</li>
+                                    <li>Assisted in managing relationships with digital content creators</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-4 border-t border-gray-200">
+                            <h5 class="font-semibold mb-3">Key Learnings:</h5>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">E-commerce Strategy</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Influencer Marketing</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Data Analysis</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Cross-functional Work</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Nissan Card - Using EXACT Structure & Classes from Previous -->
+             <div class="experience-card bg-white rounded-xl overflow-hidden mb-8">
+                 <div class="flex flex-col md:flex-row">
+                     <div class="md:w-1/4 bg-gray-800 p-8 flex items-center justify-center"> <!-- Specific background class -->
+                         <div class="text-center">
+                             <!-- *** CHECK/UPDATE IMAGE SOURCE *** -->
+                            <div class="bg-white p-4 rounded-lg inline-block mb-4 shadow-md">
+                                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format=fit=crop&w=1283&q=80" alt="Nissan Automotive" class="h-32 w-full object-cover rounded-lg">
+                             </div>
+                             <p class="text-white font-medium">Dec 2022 - Jun 2023</p>
+                            <p class="text-gray-300 text-sm"><i class="fas fa-map-marker-alt mr-1"></i> Paris, France</p>
+                        </div>
+                    </div>
+                    <div class="md:w-3/4 p-6 md:p-8">
+                         <h3 class="text-2xl font-bold mb-1 text-gray-800">Nissan Motor Corporation</h3>
+                         <h4 class="text-xl text-blue-700 font-semibold mb-5">Product Marketing Trainee, AMIEO Region</h4>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6 mb-6">
+                            <div>
+                                 <h5 class="font-semibold mb-2 text-gray-800 flex items-center"><i class="fas fa-rocket mr-2 text-red-500 fa-fw"></i> Product Launch Support</h5>
+                                 <ul class="list-disc pl-6 space-y-1 text-gray-700 text-sm">
+                                     <li>Supported go-to-market strategy for Nissan Juke MC launch across the region.</li>
+                                    <li>Coordinated effectively with Marketing, Sales, Pricing, & Comms teams.</li>
+                                    <li>Assisted in developing compelling product messaging using consumer insights.</li>
+                                </ul>
+                             </div>
+                            <div>
+                                 <h5 class="font-semibold mb-2 text-gray-800 flex items-center"><i class="fas fa-search-dollar mr-2 text-red-500 fa-fw"></i> Market & Competitive Analysis</h5>
+                                 <ul class="list-disc pl-6 space-y-1 text-gray-700 text-sm">
+                                    <li>Conducted in-depth competitive analysis covering key AMIEO countries.</li>
+                                     <li>Analyzed market performance indicators (KPIs) to identify improvement areas.</li>
+                                    <li>Contributed analysis for pricing and positioning strategy optimization.</li>
+                                 </ul>
+                             </div>
+                        </div>
+
+                         <div class="mt-5 pt-5 border-t border-gray-200">
+                            <h5 class="font-semibold mb-3 text-sm text-gray-600 uppercase tracking-wide">Key Skills Applied:</h5>
+                             <div class="flex flex-wrap gap-2">
+                                 <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Go-to-Market Strategy</span>
+                                 <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Competitive Analysis</span>
+                                <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Product Positioning</span>
+                                <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Cross-functional Coordination</span>
+                                <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Market Performance Analysis</span>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Bijouterie Pala Card - Using EXACT Structure & Classes from Previous -->
+            <div class="experience-card bg-white rounded-xl overflow-hidden mb-8">
+                <div class="flex flex-col md:flex-row">
+                     <div class="md:w-1/4 bg-amber-700 p-8 flex items-center justify-center"> <!-- Specific background class -->
+                         <div class="text-center">
+                            <!-- *** CHECK/UPDATE IMAGE SOURCE *** -->
+                             <div class="bg-white p-4 rounded-lg inline-block mb-4 shadow-md">
+                                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format=fit&crop&w=1587&q=80" alt="Luxury Jewelry" class="h-32 w-full object-cover rounded-lg">
+                             </div>
+                            <p class="text-white font-medium">Apr 2022 - Sep 2022</p>
+                             <p class="text-amber-100 text-sm"><i class="fas fa-map-marker-alt mr-1"></i> Montpellier, France</p>
+                         </div>
+                    </div>
+                    <div class="md:w-3/4 p-6 md:p-8">
+                         <h3 class="text-2xl font-bold mb-1 text-gray-800">Bijouterie Pala (Luxury Goods)</h3>
+                        <h4 class="text-xl text-blue-700 font-semibold mb-5">Digital Marketing Intern</h4>
+
+                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6 mb-6">
+                             <div>
+                                 <h5 class="font-semibold mb-2 text-gray-800 flex items-center"><i class="fas fa-store mr-2 text-amber-600 fa-fw"></i> E-commerce Development</h5>
+                                <ul class="list-disc pl-6 space-y-1 text-gray-700 text-sm">
+                                     <li>Developed and launched D2C e-commerce site featuring 100+ luxury products.</li>
+                                    <li>Increased organic traffic by 161% through strategic UI/UX improvements & SEO.</li>
+                                     <li>Achieved first-page Google ranking for multiple high-value key search terms.</li>
+                                 </ul>
+                            </div>
+                             <div>
+                                <h5 class="font-semibold mb-2 text-gray-800 flex items-center"><i class="fas fa-chart-bar mr-2 text-amber-600 fa-fw"></i> Performance & Analytics</h5>
+                                <ul class="list-disc pl-6 space-y-1 text-gray-700 text-sm">
+                                    <li>Continuously analyzed website performance using Google Analytics 4.</li>
+                                     <li>Refined digital marketing strategy iteratively based on user behavior data.</li>
+                                    <li>Increased qualified customer contact intents (leads) by 33%.</li>
+                                 </ul>
+                             </div>
+                         </div>
+
+                         <div class="mt-5 pt-5 border-t border-gray-200">
+                             <h5 class="font-semibold mb-3 text-sm text-gray-600 uppercase tracking-wide">Key Technologies & Skills:</h5>
+                            <div class="flex flex-wrap gap-2">
+                                 <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">E-commerce Platform Dev</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Google Analytics 4</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">SEO Strategy & Execution</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">UI/UX Design Principles</span>
+                               <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">D2C Marketing</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Lead Generation</span>
+                             </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+
+            <!-- Tripura Welfare Research Society Card -->
+            <div class="experience-card bg-white rounded-xl overflow-hidden mb-8">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/4 bg-green-700 p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white p-4 rounded-lg inline-block mb-4">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="NGO Work" class="h-32 w-full object-cover rounded-lg">
+                            </div>
+                            <p class="text-white font-medium">Dec 2019 - Sep 2021</p>
+                            <p class="text-green-100">Tripura, India</p>
+                        </div>
+                    </div>
+                    <div class="md:w-3/4 p-8">
+                        <h3 class="text-2xl font-bold mb-2">Tripura Welfare Research Society (NGO)</h3>
+                        <h4 class="text-xl text-blue-600 font-semibold mb-4">Marketing & Project Leadership | Project Manager</h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h5 class="font-semibold mb-2 text-gray-800"><i class="fas fa-users mr-2 text-blue-500"></i> Community Engagement</h5>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li>Spearheaded a cross-functional team using agile methodologies to design and launch an NGO merchandise campaign</li>
+                                    <li>Strategized promotional activities that expanded outreach, turning merchandise sales into a key revenue stream</li>
+                                    <li>Awarded "Excellence in Social Service"  for innovative COVID solutions</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold mb-2 text-gray-800"><i class="fas fa-hand-holding-heart mr-2 text-blue-500"></i> Fundraising & Partnerships</h5>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li>Orchestrated media partnerships with regional newspapers and government bodies</li>
+                                    <li>Designed fundraising strategy that increased donor contributions</li>
+                                    <li>Revitalized local farms through "Community Harvest" marketing initiative</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-4 border-t border-gray-200">
+                            <h5 class="font-semibold mb-3">Impact Created:</h5>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Donations Growth</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Multiple Villages Reached</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Farm Profits Increase</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Award-Winning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maruti Suzuki Card - Using EXACT Structure & Classes from Previous -->
+            <div class="experience-card bg-white rounded-xl overflow-hidden"> <!-- Removed mb-8 -->
+                <div class="flex flex-col md:flex-row">
+                     <div class="md:w-1/4 bg-red-700 p-8 flex items-center justify-center"> <!-- Specific background class -->
+                         <div class="text-center">
+                             <!-- *** CHECK/UPDATE IMAGE SOURCE *** -->
+                            <div class="bg-white p-4 rounded-lg inline-block mb-4 shadow-md">
+                                 <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format=fit&crop&w=1470&q=80" alt="Automotive Manufacturing Process" class="h-32 w-full object-cover rounded-lg">
+                             </div>
+                             <p class="text-white font-medium">Jun 2018 - Nov 2018</p>
+                            <p class="text-red-100 text-sm"><i class="fas fa-map-marker-alt mr-1"></i> New Delhi, India</p>
+                        </div>
+                    </div>
+                     <div class="md:w-3/4 p-6 md:p-8">
+                         <h3 class="text-2xl font-bold mb-1 text-gray-800">Maruti Suzuki India Ltd.</h3>
+                        <h4 class="text-xl text-blue-700 font-semibold mb-5">Quality Control Intern</h4>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6 mb-6">
+                            <div>
+                                <h5 class="font-semibold mb-2 text-gray-800 flex items-center"><i class="fas fa-chart-pie mr-2 text-gray-600 fa-fw"></i> Process Optimization & Analysis</h5>
+                                 <ul class="list-disc pl-6 space-y-1 text-gray-700 text-sm">
+                                      <li>Performed statistical analysis of production data to identify inefficiencies</li>
+                                    <li>Contributed to assembly line process refinements</li>
+                                    <li>Participated in quality audits and defect reduction initiatives</li>
+                                 </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold mb-2 text-gray-800 flex items-center"><i class="fas fa-shield-alt mr-2 text-gray-600 fa-fw"></i> Quality Assurance & Compliance</h5>
+                                <ul class="list-disc pl-6 space-y-1 text-gray-700 text-sm">
+                                     <li>Monitored quality assurance protocols for vehicle components</li>
+                                    <li>Collaborated with engineering teams to refine safety standards</li>
+                                    <li>Ensured compliance for inventory shipped to dealerships</li>
+                                 </ul>
+                            </div>
+                         </div>
+
+                        <div class="mt-5 pt-5 border-t border-gray-200">
+                            <h5 class="font-semibold mb-3 text-sm text-gray-600 uppercase tracking-wide">Key Contributions:</h5>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Process Improvement</span>
+                                 <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Quality Assurance</span>
+                                 <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Statistical Data Analysis</span>
+                                 <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Safety & Compliance Monitoring</span>
+                                 <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Data-Driven</span>
+                            </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+
+         </div>
+     </section>
+     <!-- ===================================================================== -->
+     <!--                END OF COPIED EXPERIENCE SECTION                   -->
+     <!-- ===================================================================== -->
+
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center mb-16">
+                     <h2 class="text-3xl font-bold mb-4 section-title inline-block">Key Projects Showcase</h2>
+                     <p class="text-gray-600 max-w-2xl mx-auto mt-6">Explore some of the strategic, entrepreneurial, and digital projects I've worked on. Click any card to see more details.</p>
+                 </div>
+
+                <!-- Project Summary Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Project Summary: Disney+ -->
+                    <div class="project-summary-card" data-project-id="disney">
+                        <div class="h-48 bg-cover bg-center disney-bg"></div> <!-- Use project specific bg -->
+                        <div class="p-6">
+                            <div class="mb-2">
+                                 <span class="project-summary-tag !bg-blue-100 !text-blue-800">Strategy</span>
+                                <span class="project-summary-tag !bg-green-100 !text-green-800">Sustainability</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 mt-2 text-gray-800">Disney+ Europe Growth Strategy</h3>
+                            <p class="text-sm text-gray-600 mb-4 line-clamp-3">Led team designing Europe-focused growth using STP, integrating green marketing & ethical AI. Assessed long-term risks.</p>
+                            <div class="text-right text-blue-600 text-sm font-medium hover:underline">View Details <i class="fas fa-arrow-right ml-1 text-xs"></i></div>
+                        </div>
+                    </div>
+
+                     <!-- Project Summary: L'Oréal eCommerce -->
+                    <div class="project-summary-card" data-project-id="loreal-ecommerce">
+                         <div class="h-48 bg-cover bg-center loreal-bg"></div>
+                         <div class="p-6">
+                             <div class="mb-2">
+                                 <span class="project-summary-tag !bg-purple-100 !text-purple-800">eCommerce</span>
+                                <span class="project-summary-tag !bg-red-100 !text-red-800">Digital Marketing</span>
+                             </div>
+                            <h3 class="text-lg font-semibold mb-2 mt-2 text-gray-800">L'Oréal eCommerce Acceleration</h3>
+                             <p class="text-sm text-gray-600 mb-4 line-clamp-3">Analyzed COVID-era consumer shifts, projected online sales increase. Developed strategies for ad optimization & dynamic recommendations.</p>
+                            <div class="text-right text-blue-600 text-sm font-medium hover:underline">View Details <i class="fas fa-arrow-right ml-1 text-xs"></i></div>
+                        </div>
+                    </div>
+
+                     <!-- Project Summary: Calcifer Startup -->
+                     <div class="project-summary-card" data-project-id="calcifer">
+                         <div class="h-48 bg-cover bg-center calcifer-bg"></div>
+                        <div class="p-6">
+                            <div class="mb-2">
+                                <span class="project-summary-tag !bg-yellow-100 !text-yellow-800">Startup Sim</span>
+                                <span class="project-summary-tag !bg-indigo-100 !text-indigo-800">Innovation</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 mt-2 text-gray-800">Calcifer Smart Home Startup</h3>
+                            <p class="text-sm text-gray-600 mb-4 line-clamp-3">Co-founded frugal innovation startup. Crafted financial model (30% ROI Proj.), prototyped subscription, ranked Top 3.</p>
+                            <div class="text-right text-blue-600 text-sm font-medium hover:underline">View Details <i class="fas fa-arrow-right ml-1 text-xs"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Project Summary: Wargaming -->
+                     <div class="project-summary-card" data-project-id="wargaming">
+                         <div class="h-48 bg-cover bg-center wargaming-bg"></div>
+                        <div class="p-6">
+                            <div class="mb-2">
+                                <span class="project-summary-tag !bg-red-100 !text-red-800">Content</span>
+                                 <span class="project-summary-tag !bg-gray-100 !text-gray-800">Gaming</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 mt-2 text-gray-800">Wargaming YouTube Partnership</h3>
+                             <p class="text-sm text-gray-600 mb-4 line-clamp-3">Produced gameplay guides for World of Tanks (800k+ views). Grew channel (2.2k subs), amplified player base (15% India).</p>
+                             <div class="text-right text-blue-600 text-sm font-medium hover:underline">View Details <i class="fas fa-arrow-right ml-1 text-xs"></i></div>
+                        </div>
+                    </div>
+
+                     <!-- Project Summary: Formula Focus Blog -->
+                     <div class="project-summary-card" data-project-id="f1-blog">
+                         <div class="h-48 bg-cover bg-center f1-bg"></div>
+                        <div class="p-6">
+                             <div class="mb-2">
+                                <span class="project-summary-tag !bg-teal-100 !text-teal-800">Blogging</span>
+                                 <span class="project-summary-tag !bg-orange-100 !text-orange-800">SEO</span>
+                             </div>
+                            <h3 class="text-lg font-semibold mb-2 mt-2 text-gray-800">Formula Focus F1 Blog</h3>
+                            <p class="text-sm text-gray-600 mb-4 line-clamp-3">Founded F1 analytics blog (50+ articles). Optimized WordPress, increased traffic 120% via SEO & backlinks. Featured in communities.</p>
+                            <div class="text-right text-blue-600 text-sm font-medium hover:underline">View Details <i class="fas fa-arrow-right ml-1 text-xs"></i></div>
+                        </div>
+                    </div>
+
+                     <!-- Add more summary cards if needed -->
+                      <div class="project-summary-card bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center h-full border-dashed border-2 border-gray-300 min-h-[200px]">
+                        <div class="text-center p-6">
+                            <i class="fas fa-flask text-3xl text-gray-500 mb-3"></i>
+                            <h3 class="text-lg font-semibold mb-2 text-gray-700">More Projects Coming Soon</h3>
+                            <p class="text-sm text-gray-500">Continuously working on new challenges.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+         <!-- Project Detail Container (Hidden Initially) -->
+        <section id="project-details-container" class="py-10 bg-blue-50/50 hidden"> <!-- Light blue background when shown -->
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                 <!-- Detailed project cards will be loaded here by JavaScript -->
+                 <!-- Structure copied from Projects page, adapted -->
+
+                <!-- DETAILED VIEW: Disney+ Project -->
+                <div id="project-detail-disney" class="project-detail-card hidden">
+                    <div class="disney-bg project-image"></div>
+                    <div class="project-content">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full font-medium">Market Strategy</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-medium ml-2">Sustainability</span>
+                            </div>
+                            <span class="text-gray-500 text-sm"><i class="fas fa-map-marker-alt mr-1"></i> Montpellier, France</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Disney+ Europe-Focused Growth Strategy</h3>
+                        <p class="text-gray-700 mb-6">As part of a 5-member team, I led the design of a growth strategy for Disney+ targeting the European market. We conducted thorough market analysis, competitor benchmarking, and applied STP (Segmentation, Targeting, Positioning) frameworks to identify key opportunities.</p>
+                        <div class="mb-6">
+                            <h4 class="font-bold mb-2 text-gray-800">Key Contributions & Strategy:</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Proposed innovative integration of green marketing principles (e.g., carbon-neutral streaming options, eco-conscious content promotion) to appeal to environmentally aware demographics.</li>
+                                <li>Advocated for the use of ethical AI for personalized content recommendations, focusing on transparency and user control.</li>
+                                <li>Developed and presented a comprehensive risk assessment report focusing on long-term viability, addressing data privacy concerns (GDPR) and responsible content curation practices.</li>
+                                <li>Our sustainability-driven brand identity framework was recognized and adopted by peer groups for subsequent case studies.</li>
+                            </ul>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                            <div class="bg-blue-50 p-3 rounded-lg text-center border border-blue-100">
+                                <p class="font-bold text-xl text-blue-700">5</p>
+                                <p class="text-xs text-gray-600">Team Members</p>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-lg text-center border border-green-100">
+                                <p class="font-bold text-xl text-green-700">High</p> <!-- Changed from 100% Adoption Rate -->
+                                <p class="text-xs text-gray-600">Peer Impact</p>
+                            </div>
+                            <div class="bg-purple-50 p-3 rounded-lg text-center border border-purple-100">
+                                <p class="font-bold text-xl text-purple-700">3+</p>
+                                <p class="text-xs text-gray-600">Frameworks Used</p>
+                            </div>
+                        </div>
+                        <h4 class="font-semibold mb-3 text-sm text-gray-800">Tools & Frameworks:</h4>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag">SWOT Analysis</span>
+                            <span class="skill-tag">Porter's Five Forces</span>
+                            <span class="skill-tag">STP Marketing</span>
+                            <span class="skill-tag">Market Segmentation</span>
+                            <span class="skill-tag">Competitive Analysis</span>
+                            <span class="skill-tag">Risk Assessment</span>
+                            <span class="skill-tag">Green Marketing Principles</span>
+                        </div>
+                        <div class="mt-4 border-t pt-4 text-center">
+                            <span class="pdf-badge">Detailed Report Available</span>
+                             <button class="close-detail-btn ml-4 text-red-500 hover:text-red-700 text-sm font-medium">Close Details <i class="fas fa-times ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DETAILED VIEW: L'Oréal eCommerce -->
+                <div id="project-detail-loreal-ecommerce" class="project-detail-card hidden">
+                     <div class="loreal-bg project-image"></div>
+                     <div class="project-content">
+                         <div class="flex justify-between items-start mb-4">
+                             <div>
+                                 <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full font-medium">eCommerce</span>
+                                 <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-medium ml-2">Digital Marketing</span>
+                             </div>
+                             <span class="text-gray-500 text-sm"><i class="fas fa-map-marker-alt mr-1"></i> Personal Research / L'Oréal Context</span>
+                         </div>
+                         <h3 class="text-2xl font-bold mb-4">L'Oréal eCommerce Acceleration Strategy</h3>
+                         <p class="text-gray-700 mb-6">Leveraging insights gained during my apprenticeship, I conducted independent research analyzing COVID-era consumer trends in the cosmetics industry. Projected a significant (~51%) shift towards online sales by 2023, prompting the development of data-driven digital marketing optimization strategies.</p>
+                         <div class="mb-6">
+                             <h4 class="font-bold mb-2 text-gray-800">Strategic Findings & Proposed Actions:</h4>
+                             <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                 <li>Identified key behavioral shifts: increased digital engagement, reliance on online reviews/tutorials, and higher propensity for online purchasing, especially via mobile.</li>
+                                 <li>Developed a framework leveraging Facebook Pixel and Advanced Matching for precise, intent-based advertising optimization.</li>
+                                 <li>Designed strategies for implementing Dynamic Ads (for automating product recommendations) and exploring Collaborative Ads (for cross-promotional partnerships) based on shared audience insights.</li>
+                                  <li>Conceptualized enhanced use of Google Optimize for A/B testing landing pages and checkout flows specifically for mobile users.</li>
+                             </ul>
+                         </div>
+                         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                              <div class="bg-blue-50 p-3 rounded-lg text-center border border-blue-100">
+                                <p class="font-bold text-xl text-blue-700">~51%</p>
+                                <p class="text-xs text-gray-600">Projected Online Shift</p>
+                             </div>
+                             <div class="bg-green-50 p-3 rounded-lg text-center border border-green-100">
+                                 <p class="font-bold text-xl text-green-700">+74%</p> <!-- Based on original home card data -->
+                                 <p class="text-xs text-gray-600">Potential Conversion Uplift</p>
+                             </div>
+                             <div class="bg-purple-50 p-3 rounded-lg text-center border border-purple-100">
+                                 <p class="font-bold text-xl text-purple-700">~2.4X</p> <!-- Based on original home card data -->
+                                 <p class="text-xs text-gray-600">Potential CPA Reduction</p>
+                             </div>
+                         </div>
+                          <h4 class="font-semibold mb-3 text-sm text-gray-800">Tools & Concepts:</h4>
+                         <div class="flex flex-wrap gap-2 mb-6">
+                             <span class="skill-tag">Facebook Ads Manager</span>
+                             <span class="skill-tag">Facebook Pixel</span>
+                             <span class="skill-tag">Catalog Manager</span>
+                             <span class="skill-tag">Dynamic Ads</span>
+                              <span class="skill-tag">Collaborative Ads</span>
+                             <span class="skill-tag">Google Optimize</span>
+                             <span class="skill-tag">Consumer Behavior Analysis</span>
+                             <span class="skill-tag">Data-Driven Marketing</span>
+                         </div>
+                        <div class="mt-4 border-t pt-4 text-center">
+                            <span class="pdf-badge">Research Summary Available</span>
+                            <button class="close-detail-btn ml-4 text-red-500 hover:text-red-700 text-sm font-medium">Close Details <i class="fas fa-times ml-1"></i></button>
+                        </div>
+                     </div>
+                 </div>
+
+                 <!-- DETAILED VIEW: Calcifer Startup -->
+                <div id="project-detail-calcifer" class="project-detail-card hidden">
+                    <div class="calcifer-bg project-image"></div>
+                    <div class="project-content">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full font-medium">Startup</span>
+                                <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full font-medium ml-2">Frugal Innovation</span>
+                            </div>
+                             <span class="text-gray-500 text-sm"><i class="fas fa-map-marker-alt mr-1"></i> Montpellier, France (Seminar)</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Calcifer: Smart Home Tech Startup Simulation</h3>
+                        <p class="text-gray-700 mb-6">As part of an intensive entrepreneurship seminar, co-founded 'Calcifer,' a conceptual smart home tech startup centered on frugal innovation. Led an 8-member diverse global team to design the complete value architecture, targeting budget-conscious consumers often overlooked by mainstream players.</p>
+                        <div class="mb-6">
+                            <h4 class="font-bold mb-2 text-gray-800">Key Achievements & Responsibilities:</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Developed a detailed financial model projecting a 30% ROI in Year 1, incorporating sensitivity analysis and unit economics. This model attracted significant mock investor interest during pitch sessions.</li>
+                                <li>Applied Lean Startup methodologies (Build-Measure-Learn) to rapidly prototype a tiered subscription service using Figma, focusing on core value proposition first.</li>
+                                <li>Identified operational efficiencies leading to a projected 22% cost reduction compared to initial estimates, while allowing for scalable feature additions.</li>
+                                <li>Secured a Top 3 ranking in the seminar pitch competition, evaluated on innovation, scalability, market viability, and team presentation.</li>
+                                <li>Collaborated intensely on market research, defining target personas, and crafting the go-to-market strategy.</li>
+                            </ul>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                            <div class="bg-blue-50 p-3 rounded-lg text-center border border-blue-100">
+                                <p class="font-bold text-xl text-blue-700">30%</p>
+                                <p class="text-xs text-gray-600">Projected ROI (Y1)</p>
+                            </div>
+                             <div class="bg-green-50 p-3 rounded-lg text-center border border-green-100">
+                                <p class="font-bold text-xl text-green-700">22%</p>
+                                <p class="text-xs text-gray-600">Ops Cost Reduction</p>
+                            </div>
+                             <div class="bg-purple-50 p-3 rounded-lg text-center border border-purple-100">
+                                <p class="font-bold text-xl text-purple-700">Top 3</p>
+                                <p class="text-xs text-gray-600">Seminar Ranking</p>
+                            </div>
+                        </div>
+                        <h4 class="font-semibold mb-3 text-sm text-gray-800">Tools & Methodologies:</h4>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag">Business Model Canvas</span>
+                            <span class="skill-tag">Lean Startup</span>
+                            <span class="skill-tag">Figma Prototyping</span>
+                            <span class="skill-tag">Excel Financial Modeling</span>
+                            <span class="skill-tag">Value Proposition Design</span>
+                             <span class="skill-tag">Pitch Deck Development</span>
+                             <span class="skill-tag">Market Research</span>
+                              <span class="skill-tag">Team Collaboration Tools</span>
+                        </div>
+                        <div class="mt-4 border-t pt-4 text-center">
+                            <span class="pdf-badge">Pitch Deck Available</span>
+                            <button class="close-detail-btn ml-4 text-red-500 hover:text-red-700 text-sm font-medium">Close Details <i class="fas fa-times ml-1"></i></button>
+                        </div>
+                    </div>
+                 </div>
+
+                 <!-- DETAILED VIEW: Wargaming Project -->
+                 <div id="project-detail-wargaming" class="project-detail-card hidden">
+                    <div class="wargaming-bg project-image"></div>
+                    <div class="project-content">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full font-medium">Content Creation</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full font-medium ml-2">Gaming</span>
+                                <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full font-medium ml-2">Community Growth</span>
+                            </div>
+                            <span class="text-gray-500 text-sm"><i class="fas fa-map-marker-alt mr-1"></i> APAC Region Focus</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Wargaming YouTube Content Partnership</h3>
+                        <p class="text-gray-700 mb-6">Forged a strategic content partnership with Wargaming (publishers of World of Tanks) focused on the APAC region. Produced high-quality, engaging video content including tactical gameplay guides, in-depth tank reviews, and lore analysis, distributed across YouTube, Discord, and Facebook communities.</p>
+                        <div class="mb-6">
+                            <h4 class="font-bold mb-2 text-gray-800">Key Contributions & Impact:</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Successfully generated over 800,000 views across platforms through consistent content delivery and community engagement.</li>
+                                <li>Grew a dedicated YouTube channel from zero to 2.2K+ subscribers within 6 months by employing SEO-optimized titles/descriptions/thumbnails and hosting interactive live Q&A sessions.</li>
+                                <li>Contributed to a measurable 15% increase in Wargaming's active player base in India during the campaign period, demonstrating direct marketing impact.</li>
+                                <li>Achieved recognition as a top 10% performing contributor within Wargaming's official APAC content creator network based on viewership and engagement metrics.</li>
+                                <li>Managed end-to-end production: scriptwriting, gameplay capture, video editing (Premiere Pro), voiceover, and promotion.</li>
+                            </ul>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                             <div class="bg-blue-50 p-3 rounded-lg text-center border border-blue-100">
+                                <p class="font-bold text-xl text-blue-700">800K+</p>
+                                <p class="text-xs text-gray-600">Total Views</p>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-lg text-center border border-green-100">
+                                <p class="font-bold text-xl text-green-700">2.2K+</p>
+                                <p class="text-xs text-gray-600">Subscribers Gained</p>
+                            </div>
+                            <div class="bg-purple-50 p-3 rounded-lg text-center border border-purple-100">
+                                <p class="font-bold text-xl text-purple-700">15%</p>
+                                <p class="text-xs text-gray-600">Player Base Growth (India)</p>
+                            </div>
+                        </div>
+                         <h4 class="font-semibold mb-3 text-sm text-gray-800">Tools & Skills:</h4>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag">YouTube Analytics</span>
+                            <span class="skill-tag">Video SEO (TubeBuddy)</span>
+                            <span class="skill-tag">Adobe Premiere Pro</span>
+                            <span class="skill-tag">Content Strategy</span>
+                            <span class="skill-tag">Community Engagement</span>
+                            <span class="skill-tag">Live Streaming (OBS)</span>
+                            <span class="skill-tag">Scriptwriting</span>
+                            <span class="skill-tag">Discord Server Management</span>
+                        </div>
+                         <div class="mt-4 border-t pt-4 text-center">
+                             <span class="pdf-badge">Channel Analytics Available</span>
+                            <button class="close-detail-btn ml-4 text-red-500 hover:text-red-700 text-sm font-medium">Close Details <i class="fas fa-times ml-1"></i></button>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- DETAILED VIEW: Formula Focus Blog -->
+                <div id="project-detail-f1-blog" class="project-detail-card hidden">
+                     <div class="f1-bg project-image"></div>
+                     <div class="project-content">
+                         <div class="flex justify-between items-start mb-4">
+                             <div>
+                                 <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full font-medium">Blogging</span>
+                                 <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full font-medium ml-2">SEO</span>
+                                 <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full font-medium ml-2">Data Analysis</span>
+                             </div>
+                             <span class="text-gray-500 text-sm"><i class="fas fa-calendar-alt mr-1"></i> Ongoing Project</span>
+                         </div>
+                         <h3 class="text-2xl font-bold mb-4">Formula Focus: F1 Analytics Platform</h3>
+                         <p class="text-gray-700 mb-6">Founded and actively manage 'Formula Focus,' a personal blog dedicated to in-depth Formula 1 analysis. Authored over 50 comprehensive articles covering race strategy breakdowns, aerodynamic innovations, driver performance metrics, and historical context. Built the platform from scratch using WordPress.</p>
+                         <div class="mb-6">
+                             <h4 class="font-bold mb-2 text-gray-800">Key Achievements & Activities:</h4>
+                             <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                 <li>Designed and customized a responsive WordPress theme, focusing on readability and mobile experience (achieved 95% mobile usability score via Google Search Console).</li>
+                                 <li>Implemented a robust SEO strategy including keyword research (long-tail focus), on-page optimization (Yoast SEO), technical SEO audits, and securing backlink partnerships with motorsport forums and communities.</li>
+                                 <li>Successfully increased average monthly organic traffic by 120% over a 12-month period through consistent content publication and SEO efforts.</li>
+                                 <li>My analysis articles have been featured in popular Reddit F1 communities (r/formula1) and cited by niche motorsport newsletters, establishing credibility within the F1 fan space.</li>
+                                 <li>Regularly utilize Google Analytics to track user behavior, content performance, and traffic sources to inform future content strategy.</li>
+                             </ul>
+                         </div>
+                         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                              <div class="bg-blue-50 p-3 rounded-lg text-center border border-blue-100">
+                                <p class="font-bold text-xl text-blue-700">50+</p>
+                                <p class="text-xs text-gray-600">Articles Published</p>
+                            </div>
+                             <div class="bg-green-50 p-3 rounded-lg text-center border border-green-100">
+                                <p class="font-bold text-xl text-green-700">120%</p>
+                                <p class="text-xs text-gray-600">Monthly Traffic Growth</p>
+                            </div>
+                            <div class="bg-purple-50 p-3 rounded-lg text-center border border-purple-100">
+                                <p class="font-bold text-xl text-purple-700">95%</p>
+                                <p class="text-xs text-gray-600">Mobile Usability Score</p>
+                            </div>
+                         </div>
+                          <h4 class="font-semibold mb-3 text-sm text-gray-800">Platform & Skills:</h4>
+                         <div class="flex flex-wrap gap-2 mb-6">
+                             <span class="skill-tag">WordPress CMS</span>
+                             <span class="skill-tag">Yoast SEO</span>
+                             <span class="skill-tag">Google Analytics</span>
+                             <span class="skill-tag">Google Search Console</span>
+                             <span class="skill-tag">Content Writing</span>
+                             <span class="skill-tag">Keyword Research</span>
+                             <span class="skill-tag">Technical SEO</span>
+                              <span class="skill-tag">Data Journalism</span>
+                         </div>
+                          <div class="mt-4 border-t pt-4 flex justify-center items-center gap-4">
+                             <a href="https://formulafocusdotblog.in" target="_blank" rel="noopener noreferrer" class="pdf-badge !bg-red-600 !text-white hover:!bg-red-700">Visit Website <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                             <span class="pdf-badge">Analytics Report Available</span>
+                            <button class="close-detail-btn text-red-500 hover:text-red-700 text-sm font-medium">Close Details <i class="fas fa-times ml-1"></i></button>
+                         </div>
+                     </div>
+                 </div>
+
+
+                 <!-- Add more detailed project cards here, matching data-project-id -->
+
+            </div>
+        </section>
+
+        <!-- Value Calculator Section -->
+         <section id="value" class="py-20 bg-gray-50">
+             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <h2 class="text-3xl font-bold mb-16 section-title">My Value Proposition</h2>
+
+                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                     <div>
+                         <h3 class="text-2xl font-semibold mb-6 text-gray-800">Why Partner With Me?</h3>
+                         <div class="space-y-6">
+                             <div class="flex items-start p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                                 <div class="bg-blue-100 p-3 rounded-lg mr-4 min-w-[40px] text-center">
+                                      <i class="fas fa-brain text-blue-600"></i>
+                                 </div>
+                                 <div>
+                                      <h4 class="font-semibold mb-1">Strategic & Analytical</h4>
+                                      <p class="text-sm text-gray-600">Blend data-driven insights with strategic thinking to identify opportunities, solve problems, and drive growth. Proficient in market analysis and performance tracking.</p>
+                                 </div>
+                             </div>
+                             <div class="flex items-start p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                                  <div class="bg-green-100 p-3 rounded-lg mr-4 min-w-[40px] text-center">
+                                       <i class="fas fa-cogs text-green-600"></i>
+                                 </div>
+                                 <div>
+                                     <h4 class="font-semibold mb-1">Hands-On & Proactive</h4>
+                                     <p class="text-sm text-gray-600">Proven ability to manage projects end-to-end, from conceptualization (e.g., startup sim) to execution (e.g., D2C site launch, content creation).</p>
+                                 </div>
+                             </div>
+                             <div class="flex items-start p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                                 <div class="bg-purple-100 p-3 rounded-lg mr-4 min-w-[40px] text-center">
+                                      <i class="fas fa-globe-europe text-purple-600"></i>
+                                 </div>
+                                 <div>
+                                      <h4 class="font-semibold mb-1">Cross-Cultural Adaptability</h4>
+                                      <p class="text-sm text-gray-600">Experience working in diverse international teams (L'Oréal Europe, Nissan AMIEO, global seminar) and adapting strategies for different markets.</p>
+                                 </div>
+                             </div>
+                              <div class="flex items-start p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                                 <div class="bg-yellow-100 p-3 rounded-lg mr-4 min-w-[40px] text-center">
+                                      <i class="fas fa-sync-alt text-yellow-600"></i>
+                                 </div>
+                                 <div>
+                                      <h4 class="font-semibold mb-1">Eager Learner & Tech Savvy</h4>
+                                      <p class="text-sm text-gray-600">Quickly master new tools and platforms (Analytics, Ad Managers, CMS, CRM concepts). Passionate about staying current with digital trends.</p>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div>
+                          <h3 class="text-2xl font-semibold mb-6 text-gray-800">Estimate My Potential Impact</h3>
+                         <div class="calculator-container">
+                              <div class="calculator-title"><i class="fas fa-calculator mr-2 text-blue-600"></i> ROI Estimator (Conceptual)</div>
+                             <p class="text-sm text-gray-500 mb-5">*Fun tool: Explore potential based on improved efficiency / growth contribution.</p>
+
+                             <div class="calculator-input">
+                                 <label for="current-metric">Relevant Annual Metric (€ or Unit)</label>
+                                 <input type="number" id="current-metric" placeholder="e.g., Marketing Budget, Revenue Stream, Team Hours Saved...">
+                             </div>
+                             <div class="calculator-input">
+                                 <label for="impact-percentage">Estimated Positive Impact (%)</label>
+                                  <select id="impact-percentage">
+                                      <option value="5">5% (Efficiency Gain)</option>
+                                     <option value="10" selected>10% (Moderate Contribution)</option>
+                                     <option value="15">15% (Strong Contribution)</option>
+                                     <option value="18">18% (Significant Growth)</option>
+                                  </select>
+                             </div>
+                            <div class="calculator-input">
+                                <label for="timeframe-value">Timeframe for Realization</label>
+                                <select id="timeframe-value"> <!-- Changed ID -->
+                                     <option value="6">6 months</option>
+                                    <option value="12" selected>12 months</option>
+                                    <option value="18">18 months</option>
+                                </select>
+                            </div>
+
+                             <button onclick="calculateValue()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300 mt-2 shadow hover:shadow-md">Calculate Potential Value</button>
+
+                              <!-- Results Area -->
+                              <div class="calculator-result mt-5" id="result">
+                                <h3>Potential Value Contribution</h3>
+                                <p id="growth-amount" class="text-2xl font-semibold text-blue-700 mb-2"></p>
+                                 <p id="monthly-growth" class="text-sm text-gray-700"></p>
+                                <p id="roi-info" class="text-sm text-gray-700"></p> <!-- Changed ID -->
+                              </div>
+
+                            <!-- Fun Result Message -->
+                             <div class="fun-result mt-4" id="fun-result">
+                                 <p class="text-gray-700 text-sm" id="fun-message"></p>
+                                 <div class="mt-2 flex items-center text-xs text-gray-500">
+                                     <i class="fas fa-info-circle mr-1"></i> Based on skills & past project impacts.
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </section>
+
+
+        <!-- Skills Section -->
+         <section id="skills" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                 <h2 class="text-3xl font-bold mb-16 section-title">Core Skills & Expertise</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Digital Marketing -->
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl shadow-sm border border-blue-100">
+                        <div class="flex items-center mb-4">
+                             <div class="bg-white p-3 rounded-full mr-4 shadow-sm">
+                                <i class="fas fa-bullhorn text-xl text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Digital Marketing</h3>
+                        </div>
+                         <ul class="space-y-2 text-sm text-gray-700 list-inside list-disc marker:text-blue-500">
+                           <li>SEO & SEM Fundamentals</li>
+                            <li>Social Media Marketing (Strategy & Ads)</li>
+                            <li>Content Strategy & Creation</li>
+                             <li>Influencer Marketing & Advocacy</li>
+                             <li>Email Marketing Principles</li>
+                             <li>Community Management</li>
+                             <li>Campaign Analysis & Reporting</li>
+                        </ul>
+                    </div>
+
+                     <!-- E-commerce -->
+                     <div class="bg-gradient-to-br from-green-50 to-teal-50 p-6 rounded-xl shadow-sm border border-green-100">
+                        <div class="flex items-center mb-4">
+                             <div class="bg-white p-3 rounded-full mr-4 shadow-sm">
+                                 <i class="fas fa-shopping-cart text-xl text-green-600"></i>
+                             </div>
+                            <h3 class="text-xl font-semibold text-gray-800">E-commerce</h3>
+                         </div>
+                          <ul class="space-y-2 text-sm text-gray-700 list-inside list-disc marker:text-green-500">
+                              <li>Marketplace Management (Amazon)</li>
+                              <li>D2C Strategy & Platform Dev (Conceptual)</li>
+                              <li>Product Listing Optimization (PIM basics)</li>
+                              <li>Conversion Rate Optimization (CRO Basics)</li>
+                              <li>E-commerce Analytics</li>
+                              <li>Merchandising & Bundling Strategy</li>
+                              <li>Customer Journey Mapping</li>
+                         </ul>
+                    </div>
+
+                     <!-- Analytics & Strategy -->
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl shadow-sm border border-purple-100">
+                         <div class="flex items-center mb-4">
+                              <div class="bg-white p-3 rounded-full mr-4 shadow-sm">
+                                <i class="fas fa-chart-pie text-xl text-purple-600"></i>
+                              </div>
+                              <h3 class="text-xl font-semibold text-gray-800">Analytics & Strategy</h3>
+                         </div>
+                          <ul class="space-y-2 text-sm text-gray-700 list-inside list-disc marker:text-purple-500">
+                            <li>Data Analysis (Excel)</li>
+                             <li>Google Analytics (GA4 Basics)</li>
+                              <li>Market Research & Competitive Analysis</li>
+                              <li>Business Model Canvas & Lean Startup</li>
+                            <li>SWOT, Porter's Five Forces, STP</li>
+                             <li>Financial Modeling (Basics)</li>
+                             <li>Reporting & Visualization (Tableau Basics)</li>
+                         </ul>
+                    </div>
+                 </div>
+
+                <!-- Technical Proficiencies -->
+                <div class="mt-12 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <h3 class="text-xl font-semibold mb-8 text-center text-gray-800">Toolbox & Technical Skills</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-8 gap-x-4 items-center justify-center">
+
+                         <!-- Excel -->
+                        <div class="flex flex-col items-center group" title="Advanced">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg/1103px-Microsoft_Office_Excel_%282019%E2%80%93present%29.svg.png" alt="Excel" class="h-10 w-10 object-contain mb-2 group-hover:scale-110 transition duration-200">
+                            <span class="text-sm text-gray-700 font-medium mb-1">Excel</span>
+                             <div class="proficiency-stars">
+                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                             </div>
+                        </div>
+
+                         <!-- Tableau -->
+                        <div class="flex flex-col items-center group" title="Advanced">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Tableau_Logo.png/900px-Tableau_Logo.png" alt="Tableau" class="h-10 w-10 object-contain mb-2 group-hover:scale-110 transition duration-200">
+                            <span class="text-sm text-gray-700 font-medium mb-1">Tableau</span>
+                            <div class="proficiency-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+
+                        <!-- GA4 -->
+                        <div class="flex flex-col items-center group" title="Advanced">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Google_Analytics_logo.svg/1024px-Google_Analytics_logo.svg.png" alt="Google Analytics" class="h-10 w-10 object-contain mb-2 group-hover:scale-110 transition duration-200">
+                            <span class="text-sm text-gray-700 font-medium mb-1">Google Analytics (GA4)</span>
+                            <div class="proficiency-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                             </div>
+                         </div>
+
+                         <!-- Adobe Suite -->
+                         <div class="flex flex-col items-center group" title="Intermediate">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/1024px-Adobe_Photoshop_CC_icon.svg.png" alt="Adobe Suite" class="h-10 w-10 object-contain mb-2 group-hover:scale-110 transition duration-200">
+                            <span class="text-sm text-gray-700 font-medium mb-1">Adobe Creative Suite</span>
+                            <div class="proficiency-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                             </div>
+                         </div>
+
+                         <!-- WordPress -->
+                         <div class="flex flex-col items-center group" title="Advanced">
+                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/WordPress_Blue_logo.png/1200px-WordPress_Blue_logo.png" alt="WordPress" class="h-10 w-10 object-contain mb-2 group-hover:scale-110 transition duration-200">
+                            <span class="text-sm text-gray-700 font-medium mb-1">WordPress</span>
+                             <div class="proficiency-stars">
+                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+
+                        <!-- SAP -->
+                        <div class="flex flex-col items-center group" title="Basic">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/SAP_logo.svg/1024px-SAP_logo.svg.png" alt="SAP" class="h-10 w-10 object-contain mb-2 group-hover:scale-110 transition duration-200">
+                             <span class="text-sm text-gray-700 font-medium mb-1">SAP (Basic)</span>
+                             <div class="proficiency-stars">
+                                 <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                             </div>
+                        </div>
+
+                        <!-- MS Teams -->
+                         <div class="flex flex-col items-center group" title="Advanced">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/1200px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png" alt="MS Teams" class="h-10 w-10 object-contain mb-2 group-hover:scale-110 transition duration-200">
+                            <span class="text-sm text-gray-700 font-medium mb-1">MS Teams</span>
+                            <div class="proficiency-stars">
+                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                             </div>
+                         </div>
+                                                  <!-- Slack -->
+                        <div class="flex flex-col items-center group" title="Advanced">
+                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/2048px-Slack_icon_2019.svg.png" alt="Slack" class="h-10 w-10 object-contain mb-2 group-hover:scale-110 transition duration-200">
+                            <span class="text-sm text-gray-700 font-medium mb-1">Slack</span>
+                             <div class="proficiency-stars">
+                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                         </div>
+
+                        <!-- Figma -->
+                        <div class="flex flex-col items-center group" title="Intermediate">
+                            <i class="fab fa-figma text-4xl mb-2 text-gray-700 group-hover:text-[#F24E1E] transition duration-200"></i>
+                            <span class="text-sm text-gray-700 font-medium mb-1">Figma</span>
+                            <div class="proficiency-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                             </div>
+                         </div>
+
+                         <!-- HTML/CSS -->
+                         <div class="flex flex-col items-center group" title="Advanced">
+                             <i class="fab fa-html5 text-4xl mb-2 text-gray-700 group-hover:text-[#E34F26] transition duration-200"></i>
+                             <span class="text-sm text-gray-700 font-medium mb-1">HTML/CSS</span>
+                             <div class="proficiency-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                             </div>
+                         </div>
+
+                    </div>
+                    <p class="text-xs text-center text-gray-500 mt-8">*Proficiency Rating: ★★★ Advanced/Proficient | ★★☆ Intermediate/Comfortable | ★☆☆ Basic/Familiar</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gradient-to-b from-white to-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                 <h2 class="text-3xl font-bold mb-16 section-title">Let's Connect</h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                         <h3 class="text-2xl font-semibold mb-6 text-gray-800">Ready to Drive Growth Together?</h3>
+                        <p class="text-gray-700 mb-8 leading-relaxed">
+                           I'm actively seeking opportunities where I can apply my skills in digital marketing, e-commerce, and analytics to make a tangible impact. Whether you have a specific role in mind, want to discuss industry trends, or explore potential collaborations, I'm eager to connect. Reach out via email, phone, or LinkedIn.
+                         </p>
+
+                        <div class="space-y-6 mb-10">
+                            <div class="flex items-center">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4 shadow-sm">
+                                     <i class="fas fa-envelope text-xl text-blue-600 w-5 text-center"></i>
+                                </div>
+                                <div>
+                                     <h4 class="font-semibold text-sm text-gray-500">Email</h4>
+                                     <a href="mailto:t.tejaswee8@gmail.com" class="text-blue-600 hover:underline font-medium">t.tejaswee8@gmail.com</a> <!-- **UPDATE EMAIL** -->
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-green-100 p-3 rounded-full mr-4 shadow-sm">
+                                      <i class="fab fa-linkedin-in text-xl text-green-600 w-5 text-center"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm text-gray-500">LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/tejaswee98/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-medium">linkedin.com/in/Tejaswee_Singh</a> <!-- **UPDATE LINKEDIN** -->
+                                </div>
+                            </div>
+                             <div class="flex items-center">
+                                 <div class="bg-purple-100 p-3 rounded-full mr-4 shadow-sm">
+                                     <i class="fas fa-phone-alt text-xl text-purple-600 w-5 text-center"></i>
+                                 </div>
+                                 <div>
+                                     <h4 class="font-semibold text-sm text-gray-500">Phone</h4>
+                                    <a href="tel:+33XXXXXXXXX" class="text-blue-600 hover:underline font-medium">+33 745740529</a> <!-- **UPDATE PHONE** -->
+                                 </div>
+                             </div>
+                             <div class="flex items-center">
+                                  <div class="bg-red-100 p-3 rounded-full mr-4 shadow-sm">
+                                      <i class="fas fa-map-marker-alt text-xl text-red-600 w-5 text-center"></i>
+                                 </div>
+                                 <div>
+                                     <h4 class="font-semibold text-sm text-gray-500">Location</h4>
+                                     <p class="text-gray-700 font-medium">Paris, France <span class="text-gray-500 font-normal">(Open to relocation)</span></p>
+                                 </div>
+                             </div>
+                         </div>
+                           <div class="mt-8 text-center lg:text-left">
+                               <a href="S:\Download\Tejaswee_Digital.pdf" download="Tejaswee_Singh_Resume.pdf" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5">
+                                     <i class="fas fa-download mr-2"></i> Download Resume
+                                </a> <!-- **UPDATE RESUME PATH** -->
+                           </div>
+
+                    </div>
+                    <div>
+                         <form id="contact-form" class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                              <h4 class="text-xl font-semibold mb-6 text-center text-gray-800">Send me a message</h4>
+                             <div class="mb-5">
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                                 <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-500 transition duration-200 outline-none" placeholder="John Doe">
+                             </div>
+                             <div class="mb-5">
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                 <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-500 transition duration-200 outline-none" placeholder="john.doe@example.com">
+                             </div>
+                            <div class="mb-5">
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                                 <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-500 transition duration-200 outline-none" placeholder="Job Opportunity Inquiry">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-500 transition duration-200 outline-none resize-none" placeholder="Your message here..."></textarea>
+                             </div>
+                             <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300 shadow hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Message
+                             </button>
+                             <p id="form-status" class="text-sm text-center mt-4"></p> <!-- For success/error messages -->
+                         </form>
+                    </div>
+                 </div>
+            </div>
+         </section>
+
+
+    </main> <!-- End Main Content Sections -->
+
+
+    <!-- AI Assistant -->
+    <div class="assistant-container">
+        <div class="assistant-button" id="assistant-button">
+             <i class="fas fa-robot text-2xl"></i>
+         </div>
+         <div class="assistant-chat" id="assistant-chat">
+            <div class="chat-header">
+                 <h3 class="font-semibold text-sm">Tejaswee's AI Assistant</h3>
+                <button id="close-chat" class="text-white opacity-70 hover:opacity-100">&times;</button>
+            </div>
+            <div class="chat-body" id="chat-body">
+                 <!-- Initial message -->
+                 <div class="message bot-message">
+                    Hi! Ask me about Tejaswee's skills, experience, project details, or availability.
+                 </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Ask a question..." class="text-sm">
+                <button id="send-message"><i class="fas fa-paper-plane"></i></button>
+             </div>
+         </div>
+     </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10 z-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <a href="#" class="text-lg font-bold text-white hover:text-blue-300 transition">TEJASWEE SINGH</a>
+                    <p class="text-gray-400 mt-1 text-sm">Driving Digital Growth | 2024</p>
+                </div>
+                <div class="flex space-x-5">
+                    <a href="#about" class="text-gray-400 hover:text-white text-sm transition duration-300">About</a>
+                     <a href="#experience" class="text-gray-400 hover:text-white text-sm transition duration-300">Experience</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white text-sm transition duration-300">Projects</a>
+                     <a href="#contact" class="text-gray-400 hover:text-white text-sm transition duration-300">Contact</a>
+                </div>
+                 <div class="flex space-x-6">
+                    <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300" title="LinkedIn">
+                        <i class="fab fa-linkedin-in text-xl"></i> <span class="sr-only">LinkedIn</span>
+                    </a>
+                    <!-- Add other relevant social links if needed -->
+                    <!-- Example: GitHub -->
+                     <a href="YOUR_GITHUB_URL" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300" title="GitHub">
+                        <i class="fab fa-github text-xl"></i> <span class="sr-only">GitHub</span>
+                    </a>
+                     <a href="mailto:tejaswee.your.email@example.com" class="text-gray-400 hover:text-white transition duration-300" title="Email">
+                         <i class="fas fa-envelope text-xl"></i> <span class="sr-only">Email</span>
+                     </a>
+                 </div>
+            </div>
+             <div class="mt-8 pt-6 border-t border-gray-800 text-center text-gray-500 text-xs">
+                 <p>&copy; <span id="current-year"></span> Tejaswee Singh. All rights reserved. | Designed with passion.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    // --- Mobile Menu ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when a link is clicked
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                 mobileMenu.classList.add('hidden');
+            }
+        });
+    }
+
+    // --- Project Detail Interaction ---
+    const projectSummaryCards = document.querySelectorAll('.project-summary-card');
+    const projectDetailsContainer = document.getElementById('project-details-container');
+    const allDetailSections = projectDetailsContainer ? projectDetailsContainer.querySelectorAll('.project-detail-card') : [];
+
+    projectSummaryCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const projectId = card.getAttribute('data-project-id');
+            const targetDetailSection = document.getElementById(`project-detail-${projectId}`);
+
+            if (targetDetailSection && projectDetailsContainer) {
+                // 1. Hide all detail sections first
+                allDetailSections.forEach(section => {
+                    section.classList.add('hidden');
+                     section.classList.remove('active'); // remove animation class
+                });
+
+                // 2. Show the target section
+                targetDetailSection.classList.remove('hidden');
+                targetDetailSection.classList.add('active'); // Add animation class
+
+                // 3. Show the container
+                projectDetailsContainer.classList.remove('hidden');
+
+                // 4. Smooth scroll to the container (or the detail card itself)
+                // Scrolling to the container ensures the top is visible
+                projectDetailsContainer.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start' // Aligns the top of the container to the top of the viewport
+                });
+            } else {
+                console.warn(`No detail section found for project ID: ${projectId}`);
+                 // Optionally hide the container if no target is found / clicked card has no details
+                 // projectDetailsContainer.classList.add('hidden');
+            }
+        });
+    });
+
+     // --- Close Button for Project Details ---
+    projectDetailsContainer.addEventListener('click', function(event) {
+        if (event.target.closest('.close-detail-btn')) {
+            const detailCard = event.target.closest('.project-detail-card');
+             if (detailCard) {
+                 detailCard.classList.add('hidden');
+                 detailCard.classList.remove('active');
+
+                 // Optional: Check if any other detail cards are visible, if not, hide the container
+                  const anyVisible = Array.from(allDetailSections).some(section => !section.classList.contains('hidden'));
+                  if (!anyVisible) {
+                       projectDetailsContainer.classList.add('hidden');
+                       // Scroll back up slightly or to the projects section? Optional.
+                       document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+             }
+        }
+    });
+
+
+    // --- Value Calculator Logic ---
+    function calculateValue() {
+        const metricInput = document.getElementById('current-metric');
+        const impactSelect = document.getElementById('impact-percentage');
+        const timeSelect = document.getElementById('timeframe-value'); // Updated ID
+        const resultDiv = document.getElementById('result');
+        const growthAmountP = document.getElementById('growth-amount');
+        const monthlyGrowthP = document.getElementById('monthly-growth');
+        const roiInfoP = document.getElementById('roi-info'); // Updated ID
+        const funResultDiv = document.getElementById('fun-result');
+        const funMessageP = document.getElementById('fun-message');
+
+        const metricValue = parseFloat(metricInput.value);
+        const impactPercent = parseFloat(impactSelect.value) / 100;
+        const timeframeMonths = parseInt(timeSelect.value);
+
+        if (!isNaN(metricValue) && metricValue > 0 && !isNaN(impactPercent) && !isNaN(timeframeMonths)) {
+             const potentialValue = metricValue * impactPercent;
+            const monthlyValue = potentialValue / (timeframeMonths / 12); // Normalize to annual value
+
+            growthAmountP.textContent = `€ ${potentialValue.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })} / Year`;
+            monthlyGrowthP.textContent = `Approx. € ${(monthlyValue / 12).toLocaleString(undefined, { maximumFractionDigits: 0 })} potential monthly contribution.`;
+            // ROI calculation needs a 'cost' (salary estimate) which is too speculative here. Keep it simpler.
+             roiInfoP.textContent = `Over a ${timeframeMonths}-month period.`;
+
+             resultDiv.style.display = 'block';
+             resultDiv.classList.add('active'); // For potential animation
+
+             // Fun message based on value
+             let message = "";
+             if (potentialValue > 50000) {
+                 message = "🚀 Looks like a significant potential impact! Let's make it happen.";
+             } else if (potentialValue > 10000) {
+                 message = "📈 Solid potential for growth and efficiency gains here!";
+             } else {
+                 message = "💡 Every improvement counts! Ready to contribute.";
+             }
+             funMessageP.textContent = message;
+             funResultDiv.style.display = 'block';
+
+        } else {
+             resultDiv.style.display = 'none';
+             funResultDiv.style.display = 'none';
+             growthAmountP.textContent = '';
+             monthlyGrowthP.textContent = '';
+             roiInfoP.textContent = '';
+             // Maybe show an error message?
+             if (metricInput.value === '' || parseFloat(metricInput.value) <= 0) {
+                 metricInput.classList.add('border-red-500'); // Highlight invalid input
+             } else {
+                  metricInput.classList.remove('border-red-500');
+             }
+
+        }
+    }
+      // Remove red border on input change
+      document.getElementById('current-metric')?.addEventListener('input', (e) => e.target.classList.remove('border-red-500'));
+
+
+     // --- AI Assistant Basic Functionality ---
+    const assistantButton = document.getElementById('assistant-button');
+    const assistantChat = document.getElementById('assistant-chat');
+    const closeChatButton = document.getElementById('close-chat');
+    const chatBody = document.getElementById('chat-body');
+    const userInput = document.getElementById('user-input');
+    const sendMessageButton = document.getElementById('send-message');
+
+    if (assistantButton && assistantChat && closeChatButton) {
+        assistantButton.addEventListener('click', () => {
+            assistantChat.classList.toggle('active');
+             if (assistantChat.classList.contains('active')) {
+                 userInput.focus();
+            }
+         });
+
+        closeChatButton.addEventListener('click', () => {
+            assistantChat.classList.remove('active');
+        });
+
+         // Close chat if clicked outside
+         document.addEventListener('click', function(event) {
+           const isClickInside = assistantButton.contains(event.target) || assistantChat.contains(event.target);
+           if (!isClickInside && assistantChat.classList.contains('active')) {
+              assistantChat.classList.remove('active');
+           }
+         });
+
+         // Send message simulation
+         const handleSendMessage = () => {
+             const userText = userInput.value.trim();
+             if (userText === '') return;
+
+              // Display user message
+              const userMessageDiv = document.createElement('div');
+              userMessageDiv.classList.add('message', 'user-message');
+              userMessageDiv.textContent = userText;
+              chatBody.appendChild(userMessageDiv);
+
+              userInput.value = ''; // Clear input
+             chatBody.scrollTop = chatBody.scrollHeight; // Scroll down
+
+              // Basic hardcoded responses (Replace with more logic if needed)
+             let botResponse = "Thanks for your message! Tejaswee will get back to you. For specifics, please use the contact form or email him directly.";
+
+              if (userText.toLowerCase().includes('skill')) {
+                 botResponse = "Tejaswee's core skills include Digital Marketing (SEO, SEM, Social Media), E-commerce (Amazon, D2C strategy), Data Analysis (Excel, GA), Content Creation, and Project Management. Check the 'Skills' section for more!";
+             } else if (userText.toLowerCase().includes('experience') || userText.toLowerCase().includes('loreal') || userText.toLowerCase().includes('nissan')) {
+                 botResponse = "He has valuable experience from L'Oréal Paris (E-commerce/Advocacy) and Nissan (Product Marketing), plus internships in luxury goods and quality control. See the 'Experience' section for details!";
+             } else if (userText.toLowerCase().includes('project')) {
+                  botResponse = "Tejaswee has worked on diverse projects like market strategy for Disney+, an e-commerce acceleration analysis, a startup simulation, content partnerships, and more. Click on the cards in the 'Projects' section to explore!";
+              } else if (userText.toLowerCase().includes('available') || userText.toLowerCase().includes('looking for')) {
+                  botResponse = "Tejaswee is actively seeking full-time roles starting in 2024 in Digital Marketing, E-commerce, or related fields. He's based in Paris and open to relocation.";
+             } else if (userText.toLowerCase().includes('hello') || userText.toLowerCase().includes('hi')) {
+                  botResponse = "Hello there! How can I assist you regarding Tejaswee's portfolio today?";
+              }
+
+              // Display bot response after a short delay
+              setTimeout(() => {
+                  const botMessageDiv = document.createElement('div');
+                  botMessageDiv.classList.add('message', 'bot-message');
+                  botMessageDiv.textContent = botResponse;
+                   chatBody.appendChild(botMessageDiv);
+                   chatBody.scrollTop = chatBody.scrollHeight; // Scroll down again
+              }, 600);
+         };
+
+         sendMessageButton.addEventListener('click', handleSendMessage);
+         userInput.addEventListener('keypress', (e) => {
+             if (e.key === 'Enter') {
+                 handleSendMessage();
+             }
+         });
+    }
+
+
+      // --- Contact Form Submission (Basic Example - Needs Backend/Service) ---
+      const contactForm = document.getElementById('contact-form');
+      const formStatus = document.getElementById('form-status');
+
+       if (contactForm && formStatus) {
+           contactForm.addEventListener('submit', function(event) {
+               event.preventDefault(); // Prevent default page reload
+               formStatus.textContent = 'Sending...';
+               formStatus.classList.remove('text-red-600', 'text-green-600');
+
+               // --- !! IMPORTANT !! ---
+               // This is where you would typically send the form data to a backend server
+               // or use a service like Formspree, Netlify Forms, EmailJS etc.
+               // The following is just a SIMULATION. Replace with your actual form handling logic.
+
+               const formData = new FormData(contactForm);
+               const data = Object.fromEntries(formData.entries());
+               console.log("Form Data Submitted (Simulation):", data);
+
+               // Simulate network request
+                setTimeout(() => {
+                     // Simulate success
+                     formStatus.textContent = 'Message sent successfully! Thank you.';
+                    formStatus.classList.add('text-green-600');
+                    contactForm.reset(); // Clear the form
+
+                     // Simulate error (uncomment to test)
+                     /*
+                     formStatus.textContent = 'Sorry, there was an error sending your message. Please try again later or use email.';
+                     formStatus.classList.add('text-red-600');
+                     */
+
+                }, 1500); // 1.5 second delay simulation
+           });
+       }
+
+       // --- Update Footer Year ---
+       document.getElementById('current-year').textContent = new Date().getFullYear();
+
+       // --- Active Nav Link Highlighting (Basic on Scroll) ---
+       const sections = document.querySelectorAll('section[id]');
+       const navLinks = document.querySelectorAll('nav a.nav-link');
+
+       window.addEventListener('scroll', () => {
+         let current = '';
+         sections.forEach(section => {
+           const sectionTop = section.offsetTop;
+           const sectionHeight = section.clientHeight;
+            // Adjust offset if needed due to fixed nav height (approx 64px or h-16)
+            if (pageYOffset >= (sectionTop - sectionHeight / 3 - 64)) {
+             current = section.getAttribute('id');
+           }
+         });
+
+          navLinks.forEach(link => {
+           link.classList.remove('active'); // Custom 'active' class or Tailwind style
+           if (link.getAttribute('href') === `#${current}`) {
+              link.classList.add('active');
+           }
+         });
+
+         // Also handle mobile menu links if they are separate elements
+         const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+         mobileNavLinks.forEach(link => {
+             // Reset styling - might need specific classes
+            link.classList.remove('bg-blue-100', 'font-semibold');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('bg-blue-100', 'font-semibold'); // Example active style for mobile
+            }
+        });
+       });
+
+
+</script>
+
+</body>
+</html>
