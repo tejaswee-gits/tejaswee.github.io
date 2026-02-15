@@ -607,6 +607,48 @@
             display: flex;
             align-items: baseline;
             justify-content: center;
+
+            /* Glass Box Styling */
+            padding: 20px 40px;
+            border-radius: 20px;
+            position: relative;
+            z-index: 10;
+
+            /* Start invisible for animation */
+            border: 2px solid transparent;
+            background: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(0px);
+
+            /* Animate: Line wraps -> Glass fills */
+            animation: glassForm 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards 0.2s;
+        }
+
+        @keyframes glassForm {
+            0% {
+                border-color: transparent;
+                background: rgba(255, 255, 255, 0);
+                backdrop-filter: blur(0px);
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+                border-color: rgba(255, 255, 255, 0.8);
+                /* Line appears */
+                background: rgba(255, 255, 255, 0);
+                transform: scale(1);
+            }
+
+            100% {
+                border-color: rgba(255, 255, 255, 0.2);
+                /* Subtle border */
+                background: rgba(255, 255, 255, 0.1);
+                /* Translucent fill */
+                backdrop-filter: blur(12px);
+                /* Glass blur */
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            }
         }
 
         /* The letters wrapper */
