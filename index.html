@@ -573,230 +573,72 @@
             scrollbar-width: none;
         }
 
-        /* Futuristic Loading Screen */
-        #loading-screen {
+        /* Smooth Shutter Intro Animation */
+        #intro-overlay {
             position: fixed;
-            inset: 0;
-            z-index: 9999;
-            background: #000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            z-index: 10000;
+            /* Higher than everything */
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            overflow: hidden;
-            transition: opacity 0.8s ease-in-out, visibility 0.8s;
+            align-items: center;
+            /* The shutter effect: Slide up smoothly */
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+            transform-origin: top;
         }
 
-        .warp-grid {
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            top: -50%;
-            left: -50%;
-            background-image:
-                linear-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px);
-            background-size: 50px 50px;
-            transform: perspective(500px) rotateX(60deg) translateY(0);
-            animation: gridMove 3s linear infinite;
-            opacity: 0.2;
-            z-index: 1;
+        #intro-overlay.slide-up {
+            transform: translateY(-100%);
         }
 
-        @keyframes gridMove {
-            0% {
-                transform: perspective(500px) rotateX(60deg) translateY(0);
-            }
-
-            100% {
-                transform: perspective(500px) rotateX(60deg) translateY(50px);
-            }
-        }
-
-        /* Starfield effect */
-        .star-field {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            perspective: 600px;
-            z-index: 0;
-        }
-
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0;
-            animation: warpStar 3s linear infinite;
-        }
-
-        @keyframes warpStar {
-            0% {
-                transform: translateZ(0) scale(0.1);
-                opacity: 0;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateZ(600px) scale(2);
-                opacity: 0;
-            }
-        }
-
-        /* Text Effects */
-        .loader-content {
-            z-index: 10;
+        .intro-content {
             text-align: center;
-            position: relative;
-        }
-
-        .cyber-text {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 3rem;
-            font-weight: bold;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .cyber-text::before,
-        .cyber-text::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-        }
-
-        .cyber-text::before {
-            left: 2px;
-            text-shadow: -1px 0 red;
             overflow: hidden;
-            clip: rect(0, 900px, 0, 0);
-            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+            /* For text reveal mask */
         }
 
-        .cyber-text::after {
-            left: -2px;
-            text-shadow: -1px 0 blue;
-            overflow: hidden;
-            clip: rect(0, 900px, 0, 0);
-            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        .intro-text {
+            font-family: 'Poppins', sans-serif;
+            /* Matching site font */
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -2px;
+            display: inline-block;
+            transform: translateY(100%);
+            opacity: 0;
+            animation: textReveal 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards 0.5s;
         }
 
-        @keyframes glitch-anim-1 {
+        @keyframes textReveal {
             0% {
-                clip: rect(20px, 9999px, 10px, 0);
-            }
-
-            20% {
-                clip: rect(60px, 9999px, 20px, 0);
-            }
-
-            40% {
-                clip: rect(10px, 9999px, 80px, 0);
-            }
-
-            60% {
-                clip: rect(80px, 9999px, 40px, 0);
-            }
-
-            80% {
-                clip: rect(30px, 9999px, 70px, 0);
+                transform: translateY(100%);
+                opacity: 0;
             }
 
             100% {
-                clip: rect(50px, 9999px, 90px, 0);
-            }
-        }
-
-        @keyframes glitch-anim-2 {
-            0% {
-                clip: rect(10px, 9999px, 80px, 0);
-            }
-
-            20% {
-                clip: rect(70px, 9999px, 20px, 0);
-            }
-
-            40% {
-                clip: rect(20px, 9999px, 10px, 0);
-            }
-
-            60% {
-                clip: rect(90px, 9999px, 60px, 0);
-            }
-
-            80% {
-                clip: rect(40px, 9999px, 30px, 0);
-            }
-
-            100% {
-                clip: rect(60px, 9999px, 50px, 0);
-            }
-        }
-
-        .loading-bar-container {
-            width: 300px;
-            height: 4px;
-            background: #1e3a8a;
-            border-radius: 2px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .loading-bar {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 0%;
-            background: #3b82f6;
-            box-shadow: 0 0 10px #3b82f6;
-            animation: loadProgress 2.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
-        }
-
-        @keyframes loadProgress {
-            0% {
-                width: 0%;
-            }
-
-            50% {
-                width: 70%;
-            }
-
-            100% {
-                width: 100%;
-            }
-        }
-
-        .status-text {
-            font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
-            color: #60a5fa;
-            margin-top: 10px;
-            letter-spacing: 2px;
-            animation: textBlink 1s infinite;
-        }
-
-        @keyframes textBlink {
-
-            0%,
-            100% {
+                transform: translateY(0);
                 opacity: 1;
             }
+        }
 
-            50% {
-                opacity: 0.5;
+        /* Optional: A subtle pulse or shimmer to keep it alive for the 5s */
+        .intro-text span {
+            display: inline-block;
+            background: linear-gradient(to right, #fff, #bfdbfe 50%, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
             }
         }
     </style>
@@ -804,18 +646,12 @@
 
 <body class="relative"> <!-- Added relative for absolute positioned elements -->
 
-    <!-- Futuristic Loading Screen -->
-    <div id="loading-screen">
-        <div class="warp-grid"></div>
-        <div class="star-field" id="star-field">
-            <!-- Stars injected via JS -->
-        </div>
-        <div class="loader-content">
-            <h1 class="cyber-text" data-text="TEJASWEE SINGH">TEJASWEE SINGH</h1>
-            <div class="loading-bar-container">
-                <div class="loading-bar"></div>
-            </div>
-            <p class="status-text">INITIALIZING SYSTEMS...</p>
+    <!-- Smooth Shutter Intro -->
+    <div id="intro-overlay">
+        <div class="intro-content">
+            <h1 class="intro-text">
+                <span>Tejaswee's Portfolio</span>
+            </h1>
         </div>
     </div>
 
@@ -2937,32 +2773,20 @@
 
     </script>
     <script>
-        // --- Futuristic Loading Screen Logic ---
+        // --- Smooth Shutter Intro Logic ---
         document.addEventListener("DOMContentLoaded", () => {
-            const starField = document.getElementById('star-field');
-            const loadingScreen = document.getElementById('loading-screen');
+            const introOverlay = document.getElementById('intro-overlay');
 
-            if (starField && loadingScreen) {
-                // Create stars dynamically
-                for (let i = 0; i < 200; i++) {
-                    const star = document.createElement('div');
-                    star.className = 'star';
-                    // Random positions
-                    const x = (Math.random() - 0.5) * 200; // Expanded range
-                    const y = (Math.random() - 0.5) * 200;
-
-                    star.style.left = `${50 + x}%`;
-                    star.style.top = `${50 + y}%`;
-                    star.style.animationDelay = `${Math.random() * 3}s`;
-
-                    starField.appendChild(star);
-                }
-
-                // Simulate loading completion
+            if (introOverlay) {
+                // Wait for 5 seconds, then fold up
                 setTimeout(() => {
-                    loadingScreen.style.opacity = '0';
-                    loadingScreen.style.visibility = 'hidden';
-                }, 2500); // 2.5s duration
+                    introOverlay.classList.add('slide-up');
+
+                    // Optional: remove from DOM after transition to clean up
+                    setTimeout(() => {
+                        introOverlay.style.display = 'none';
+                    }, 1000); // 0.8s transition + buffer
+                }, 5000); // 5 seconds duration
             }
         });
     </script>
