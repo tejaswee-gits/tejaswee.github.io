@@ -147,64 +147,49 @@
                 <div class="w-20 h-1.5 bg-indigo-insight rounded-full"></div>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <!-- Custom CSS Pyramid Chart -->
-                <div class="relative w-full h-[400px] flex items-end justify-center">
-                    <!-- Base Pyramid -->
-                    <div class="relative w-full max-w-[400px] h-[350px]">
-                        <!-- Main Triangle Body -->
-                        <div class="absolute inset-0 bg-gradient-to-b from-indigo-900/50 to-slate-900 clip-path-triangle opacity-80"
-                            style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"></div>
-
-                        <!-- Top Highlight Section (India 1) -->
-                        <div class="absolute top-0 left-0 right-0 h-[35%] bg-gradient-to-b from-indigo-500 to-indigo-600 shadow-[0_0_30px_rgba(99,102,241,0.5)] z-10 flex items-center justify-center"
-                            style="clip-path: polygon(50% 0%, 15% 100%, 85% 100%);">
-                            <span class="text-white font-black tracking-tighter text-sm mt-8 opacity-90">INDIA 1</span>
-                        </div>
-
-                        <!-- Floating Label 120M -->
-                        <div
-                            class="absolute top-[10%] right-[-20%] md:right-[-40px] glass px-6 py-4 rounded-xl border-l-4 border-indigo-500 animate-pulse">
-                            <h3 class="text-3xl font-black text-white leading-none">120M</h3>
-                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Active
-                                Addressable Users</p>
-                        </div>
+                <!-- Chart: Consumption Pyramid (Bar + Line) -->
+                <div class="glass p-6 rounded-2xl border border-white/10 h-[450px]">
+                    <h3 class="text-xl font-bold text-center mb-4 text-white">The Consumption Pyramid</h3>
+                    <div class="h-[350px] w-full">
+                        <canvas id="consumptionChart"></canvas>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 gap-6">
-                    <div
-                        class="glass p-8 rounded-2xl border-l-4 border-indigo-insight flex items-center gap-6 group hover:bg-white/5 transition-all">
-                        <div
-                            class="w-14 h-14 rounded-lg bg-indigo-insight/10 flex items-center justify-center text-indigo-insight">
-                            <span class="material-icons text-3xl">payments</span>
-                        </div>
-                        <div>
-                            <h4 class="text-2xl font-bold text-white mb-1">$15K+ Annual Income</h4>
-                            <p class="text-slate-400">Median household income of the top tier urban demographic (approx
-                                120M people).</p>
-                        </div>
-                    </div>
-                    <div
-                        class="glass p-8 rounded-2xl border-l-4 border-indigo-insight flex items-center gap-6 group hover:bg-white/5 transition-all">
-                        <div
-                            class="w-14 h-14 rounded-lg bg-indigo-insight/10 flex items-center justify-center text-indigo-insight">
-                            <span class="material-icons text-3xl">schedule</span>
-                        </div>
-                        <div>
-                            <h4 class="text-2xl font-bold text-white mb-1">Values Time > Money</h4>
-                            <p class="text-slate-400">Willingness to pay a premium for convenience and instant
-                                gratification.</p>
+                <!-- Narrative Content -->
+                <div class="space-y-8">
+                    <!-- Who is India 1? -->
+                    <div class="glass p-6 rounded-xl border border-white/5 hover:bg-white/5 transition-all">
+                        <h3 class="text-xl font-bold text-white mb-3 border-l-4 border-emerald-500 pl-3">Who is India 1?
+                        </h3>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            India 1 represents approximately <strong class="text-white">30 Million Households</strong>
+                            (approx. 120M people). This demographic earns <strong class="text-white">>$15,000 (approx
+                                ₹12L+) per annum</strong>.
+                        </p>
+
+                        <!-- Green Stat Box -->
+                        <div class="bg-emerald-500/10 p-4 rounded-lg border border-emerald-500/20">
+                            <p class="text-sm text-emerald-400 font-semibold mb-1">Key Consumption Stat:</p>
+                            <p class="text-sm text-emerald-200 leading-snug">
+                                Despite being a small fraction of the population, India 1 accounts for nearly <strong
+                                    class="text-white">60-70% of discretionary spending</strong> in categories like
+                                premium beauty, dining out, and electronics.
+                            </p>
                         </div>
                     </div>
-                    <div
-                        class="glass p-8 rounded-2xl border-l-4 border-indigo-insight flex items-center gap-6 group hover:bg-white/5 transition-all">
-                        <div
-                            class="w-14 h-14 rounded-lg bg-indigo-insight/10 flex items-center justify-center text-indigo-insight">
-                            <span class="material-icons text-3xl">shopping_cart</span>
-                        </div>
-                        <div>
-                            <h4 class="text-2xl font-bold text-white mb-1">60% Discretionary Spend</h4>
-                            <p class="text-slate-400">High frequency purchasing across non-essential categories.</p>
-                        </div>
+
+                    <!-- Why Convenience? -->
+                    <div class="glass p-6 rounded-xl border border-white/5 hover:bg-white/5 transition-all">
+                        <h3 class="text-xl font-bold text-white mb-3 border-l-4 border-indigo-insight pl-3">Why
+                            "Convenience" over "Cost"?</h3>
+                        <p class="text-slate-400 leading-relaxed mb-3">
+                            For India 2 and 3, money is the primary constraint, making them highly price-sensitive
+                            (seeking discounts).
+                        </p>
+                        <p class="text-slate-200 leading-relaxed">
+                            For India 1, <strong class="text-white">Time is the primary constraint</strong>. They are
+                            "Money Rich, Time Poor." They are willing to pay a premium (delivery fees, platform fees,
+                            non-discounted MRP) to save 30 minutes of traffic or planning.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -484,9 +469,75 @@
     </footer>
     <!-- Chart Initialization Scripts -->
     <script>
-        // 1. Pyramid Chart - Deplaced by CSS Visual
-
-        // 2. Radar Chart
+        // 1. Consumption Pyramid (Mixed Chart)
+        const ctxConsumption = document.getElementById('consumptionChart').getContext('2d');
+        new Chart(ctxConsumption, {
+            type: 'bar',
+            data: {
+                labels: ['India 1 (Rich)', 'India 2 (Middle)', 'India 3 (Mass)'],
+                datasets: [
+                    {
+                        label: 'Population (Millions)',
+                        data: [120, 100, 1100],
+                        backgroundColor: ['#10b981', '#cbd5e1', '#cbd5e1'], // Green for India 1, Grey others
+                        borderRadius: 4,
+                        order: 2,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'Avg Income (USD/yr)',
+                        data: [15000, 3000, 1500],
+                        type: 'line',
+                        borderColor: '#6366f1', // Indigo
+                        pointBackgroundColor: '#6366f1',
+                        borderWidth: 3,
+                        pointRadius: 6,
+                        tension: 0.3,
+                        order: 1,
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { color: '#94a3b8' }
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                        borderWidth: 1,
+                        borderColor: 'rgba(255,255,255,0.1)'
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#cbd5e1' }
+                    },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: { display: true, text: 'Population (Millions)', color: '#94a3b8' },
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        ticks: { color: '#94a3b8' }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: { display: true, text: 'Income ($)', color: '#6366f1' },
+                        grid: { display: false },
+                        ticks: { color: '#6366f1', callback: (value) => '$' + value }
+                    }
+                }
+            }
+        });
 
         // 2. Radar Chart
         const ctxRadar = document.getElementById('radarChart').getContext('2d');
