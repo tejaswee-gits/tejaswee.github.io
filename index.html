@@ -81,6 +81,10 @@
             background: url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80') center/cover;
         }
 
+        .qcomm-bg {
+            background: url('https://images.unsplash.com/photo-1620917670397-a1288c42662c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80') center/cover;
+        }
+
         /* Typography & Titles */
         .section-title {
             /* From Home */
@@ -1091,6 +1095,24 @@
                 <!-- Project Summary Cards Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
+                    <!-- Project Summary: Quick Commerce Intel -->
+                    <div class="project-summary-card" data-project-id="qcomm">
+                        <div class="h-48 bg-cover bg-center qcomm-bg"></div>
+                        <div class="p-6">
+                            <div class="mb-2">
+                                <span class="project-summary-tag !bg-emerald-100 !text-emerald-800">Market
+                                    Intelligence</span>
+                                <span class="project-summary-tag !bg-blue-100 !text-blue-800">Unit Economics</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 mt-2 text-gray-800">India's Quick Commerce Boom</h3>
+                            <p class="text-sm text-gray-600 mb-4 line-clamp-3">A data-driven analysis of the "India 1"
+                                consumer, unit economics profitable turnaround, and the strategic shift from Cost to
+                                Convenience.</p>
+                            <div class="text-right text-emerald-600 text-sm font-medium hover:underline">View Details <i
+                                    class="fas fa-arrow-right ml-1 text-xs"></i></div>
+                        </div>
+                    </div>
+
                     <!-- Project Summary: Nykaa Business Study -->
                     <div class="project-summary-card" data-project-id="nykaa">
                         <div class="h-48 bg-cover bg-center nykaa-bg"></div>
@@ -1247,6 +1269,63 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Detailed project cards will be loaded here by JavaScript -->
                 <!-- Structure copied from Projects page, adapted -->
+
+                <!-- DETAILED VIEW: Quick Commerce Intel -->
+                <div id="project-detail-qcomm" class="project-detail-card hidden">
+                    <div class="qcomm-bg project-image"></div>
+                    <div class="project-content">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span
+                                    class="bg-emerald-100 text-emerald-800 text-xs px-3 py-1 rounded-full font-medium">Market
+                                    Analysis</span>
+                                <span
+                                    class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full font-medium ml-2">Growth
+                                    Strategy</span>
+                            </div>
+                            <span class="text-gray-500 text-sm"><i class="fas fa-chart-line mr-1"></i> Industry
+                                Report</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Rise of Quick Commerce: Strategic Analysis</h3>
+                        <p class="text-gray-700 mb-6">A deep dive into the Quick Commerce sector in India (Blinkit,
+                            Zepto, Swiggy Instamart). This study deconstructs the target demographic ("India 1"),
+                            analyzes the path to profitability through improved unit economics, and maps the competitive
+                            landscape shift.</p>
+
+                        <div class="mb-6">
+                            <h4 class="font-bold mb-2 text-gray-800">Key Focus Areas:</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li><strong>Consumer Profiling:</strong> Identifying the "India 1" user (Time Poor,
+                                    Money Rich).</li>
+                                <li><strong>Unit Economics:</strong> Visualizing the shift from cash burn (2022) to
+                                    contribution positive (2024).</li>
+                                <li><strong>Strategic Moats:</strong> Analyzing the "3 Cs" tradeoff: Convenience vs Cost
+                                    vs Catalog.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Embedded Study Preview -->
+                        <div class="mb-6">
+                            <h4 class="font-bold mb-2 text-gray-800">Q-Comm Intel Interactive Preview:</h4>
+                            <div
+                                class="w-full h-[500px] bg-slate-100 rounded-lg overflow-hidden border border-slate-200 shadow-inner">
+                                <iframe src="q-comm-study.html" class="w-full h-full" frameborder="0">
+                                    <p class="text-center p-4">Your browser does not support iframes. <a
+                                            href="q-comm-study.html" class="text-blue-600 hover:underline">View Full
+                                            Analysis</a></p>
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 border-t pt-4 flex justify-center items-center gap-4">
+                            <a href="q-comm-study.html" target="_blank"
+                                class="pdf-badge !bg-emerald-600 !text-white hover:!bg-emerald-700">Open Full
+                                Intelligence Report <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                            <button class="close-detail-btn text-red-500 hover:text-red-700 text-sm font-medium">Close
+                                Details <i class="fas fa-times ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- DETAILED VIEW: Disney+ Project -->
                 <div id="project-detail-disney" class="project-detail-card hidden">
