@@ -620,7 +620,7 @@
             backdrop-filter: blur(0px);
 
             /* Animate: Line wraps -> Glass fills */
-            animation: glassForm 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards 0.2s;
+            animation: glassForm 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards 0.1s;
         }
 
         @keyframes glassForm {
@@ -2892,14 +2892,14 @@
                     if (chars[11]) chars[11].classList.add('bounce-active');
                 }, 400); // Slight delay for dynamic feel
 
-                // 3. End animation and open shutter (Reduced to 3s)
+                // 3. End animation and open shutter (Reduced to 1.5s)
                 setTimeout(() => {
                     introOverlay.classList.add('slide-up');
 
                     setTimeout(() => {
                         introOverlay.style.display = 'none';
                     }, 1000);
-                }, 3000); // 3 seconds total duration
+                }, 1500); // 1.5 seconds total duration
             }
         });
     </script>
