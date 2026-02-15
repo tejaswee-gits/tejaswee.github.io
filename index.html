@@ -666,13 +666,8 @@
         }
 
         .bounce-active {
-            animation: pixarJump 1.2s ease-in-out infinite;
-            /* Infinite loop for "juggling" feel or just once per cycle? 
-               User said "make them juggle and animate", suggesting continuous movement.
-               Let's create a staggered wave.
-            */
-            animation-iteration-count: 2;
-            /* Bounce twice then settle before shutter closes */
+            animation: pixarJump 0.8s ease-in-out infinite;
+            animation-iteration-count: infinite;
         }
     </style>
 </head>
@@ -2822,22 +2817,28 @@
                     textContainer.appendChild(span);
                 });
 
-                // 2. Animate letters sequentially (Juggle/Wave effect)
+                // 2. Animate ONLY 'T' and 'P' (Dynamic Jump)
                 const chars = document.querySelectorAll('.char');
-                chars.forEach((char, index) => {
-                    setTimeout(() => {
-                        char.classList.add('bounce-active');
-                    }, index * 100); // 100ms delay between each letter
-                });
 
-                // 3. End animation and open shutter
+                // Target 'T' (Index 0)
+                setTimeout(() => {
+                    if (chars[0]) chars[0].classList.add('bounce-active');
+                }, 100);
+
+                // Target 'P' (Index 11 - "Tejaswee's " is 11 chars incl space)
+                // "Tejaswee's " length: 11 (0-10) -> P is index 11
+                setTimeout(() => {
+                    if (chars[11]) chars[11].classList.add('bounce-active');
+                }, 400); // Slight delay for dynamic feel
+
+                // 3. End animation and open shutter (Reduced to 3s)
                 setTimeout(() => {
                     introOverlay.classList.add('slide-up');
 
                     setTimeout(() => {
                         introOverlay.style.display = 'none';
                     }, 1000);
-                }, 5000); // 5 seconds total duration
+                }, 3000); // 3 seconds total duration
             }
         });
     </script>
