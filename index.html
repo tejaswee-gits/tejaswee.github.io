@@ -582,11 +582,9 @@
             height: 100%;
             background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
             z-index: 10000;
-            /* Higher than everything */
             display: flex;
             justify-content: center;
             align-items: center;
-            /* The shutter effect: Slide up smoothly */
             transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
             transform-origin: top;
         }
@@ -597,49 +595,84 @@
 
         .intro-content {
             text-align: center;
-            overflow: hidden;
-            /* For text reveal mask */
+            /* No overflow hidden here to allow jump outside */
         }
 
-        .intro-text {
+        .intro-text-container {
             font-family: 'Poppins', sans-serif;
-            /* Matching site font */
             font-size: 3.5rem;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: -2px;
-            display: inline-block;
-            transform: translateY(100%);
-            opacity: 0;
-            animation: textReveal 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards 0.5s;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
         }
 
-        @keyframes textReveal {
+        /* The letters wrapper */
+        .char {
+            display: inline-block;
+            transform-origin: bottom center;
+            position: relative;
+        }
+
+        /* 
+           Pixar Jump Animation:
+           The key features are: 
+           1. Anticipation (Crouch - Squash)
+           2. Jump (Stretch)
+           3. Apex (Normal/Float)
+           4. Land (Squash)
+           5. Recover (Normal)
+        */
+        @keyframes pixarJump {
             0% {
-                transform: translateY(100%);
-                opacity: 0;
+                transform: scale(1, 1) translateY(0);
             }
 
+            10% {
+                transform: scale(1.25, 0.75) translateY(0);
+            }
+
+            /* Crouch/Squash */
+            30% {
+                transform: scale(0.75, 1.25) translateY(-60px);
+            }
+
+            /* Jump Up/Stretch */
+            50% {
+                transform: scale(1, 1) translateY(-80px);
+            }
+
+            /* Apex */
+            65% {
+                transform: scale(0.95, 1.05) translateY(-60px);
+            }
+
+            /* Falling */
+            75% {
+                transform: scale(1.25, 0.75) translateY(0);
+            }
+
+            /* Land/Squash */
+            90% {
+                transform: scale(0.9, 1.1) translateY(-10px);
+            }
+
+            /* Rebound */
             100% {
-                transform: translateY(0);
-                opacity: 1;
+                transform: scale(1, 1) translateY(0);
             }
         }
 
-        /* Optional: A subtle pulse or shimmer to keep it alive for the 5s */
-        .intro-text span {
-            display: inline-block;
-            background: linear-gradient(to right, #fff, #bfdbfe 50%, #fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: shine 3s linear infinite;
-        }
-
-        @keyframes shine {
-            to {
-                background-position: 200% center;
-            }
+        .bounce-active {
+            animation: pixarJump 1.2s ease-in-out infinite;
+            /* Infinite loop for "juggling" feel or just once per cycle? 
+               User said "make them juggle and animate", suggesting continuous movement.
+               Let's create a staggered wave.
+            */
+            animation-iteration-count: 2;
+            /* Bounce twice then settle before shutter closes */
         }
     </style>
 </head>
@@ -649,8 +682,8 @@
     <!-- Smooth Shutter Intro -->
     <div id="intro-overlay">
         <div class="intro-content">
-            <h1 class="intro-text">
-                <span>Tejaswee's Portfolio</span>
+            <h1 class="intro-text-container" id="intro-text-container">
+                <!-- Text injected via JS for per-character animation -->
             </h1>
         </div>
     </div>
@@ -2773,20 +2806,38 @@
 
     </script>
     <script>
-        // --- Smooth Shutter Intro Logic ---
+        // --- Smooth Shutter Intro Logic (Pixar Style Bounce) ---
         document.addEventListener("DOMContentLoaded", () => {
             const introOverlay = document.getElementById('intro-overlay');
+            const textContainer = document.getElementById('intro-text-container');
+            const text = "Tejaswee's Portfolio";
 
-            if (introOverlay) {
-                // Wait for 5 seconds, then fold up
+            if (introOverlay && textContainer) {
+
+                // 1. Split text into characters
+                text.split('').forEach((char, index) => {
+                    const span = document.createElement('span');
+                    span.textContent = char === ' ' ? '\u00A0' : char; // Preserve spaces
+                    span.className = 'char';
+                    textContainer.appendChild(span);
+                });
+
+                // 2. Animate letters sequentially (Juggle/Wave effect)
+                const chars = document.querySelectorAll('.char');
+                chars.forEach((char, index) => {
+                    setTimeout(() => {
+                        char.classList.add('bounce-active');
+                    }, index * 100); // 100ms delay between each letter
+                });
+
+                // 3. End animation and open shutter
                 setTimeout(() => {
                     introOverlay.classList.add('slide-up');
 
-                    // Optional: remove from DOM after transition to clean up
                     setTimeout(() => {
                         introOverlay.style.display = 'none';
-                    }, 1000); // 0.8s transition + buffer
-                }, 5000); // 5 seconds duration
+                    }, 1000);
+                }, 5000); // 5 seconds total duration
             }
         });
     </script>
