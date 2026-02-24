@@ -4342,6 +4342,15 @@
             const text = "Tejaswee's Portfolio";
 
             if (introOverlay && textContainer) {
+                // Check if user has already seen the intro in this session
+                if (sessionStorage.getItem('introSeen')) {
+                    // Hide immediately without animation
+                    introOverlay.style.display = 'none';
+                    return; // Exit script
+                }
+
+                // Mark that the user is seeing it now
+                sessionStorage.setItem('introSeen', 'true');
 
                 // 1. Split text into characters
                 text.split('').forEach((char, index) => {
