@@ -4,6 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5LW68XC9X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-N5LW68XC9X');
+    </script>
+
     <!-- Updated Title for Combined Page -->
     <title>Tejaswee Singh | Digital Marketing Portfolio & Projects</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -4346,6 +4356,121 @@
                     }, 1000);
                 }, 1500); // 1.5 seconds total duration
             }
+        });
+    </script>
+
+    <!-- Enhanced GA4 Custom Event Tracking -->
+    <script>
+        // --- Section Visibility & Time Tracking ---
+        (function () {
+            const sectionTimers = {};
+            const sectionStartTimes = {};
+            const trackedSections = ['about', 'experience', 'world-map', 'skill-mix', 'projects', 'value', 'skills', 'contact'];
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.id;
+                    if (entry.isIntersecting) {
+                        sectionStartTimes[id] = Date.now();
+                        // Fire section_view event
+                        gtag('event', 'section_view', {
+                            section_name: id,
+                            event_category: 'engagement'
+                        });
+                    } else if (sectionStartTimes[id]) {
+                        const timeSpent = Math.round((Date.now() - sectionStartTimes[id]) / 1000);
+                        if (timeSpent > 2) { // Only track if > 2 seconds
+                            gtag('event', 'section_time_spent', {
+                                section_name: id,
+                                time_seconds: timeSpent,
+                                event_category: 'engagement'
+                            });
+                        }
+                        delete sectionStartTimes[id];
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            // Observe all sections
+            trackedSections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) observer.observe(el);
+            });
+
+            // Also track hero section
+            const hero = document.querySelector('header.hero-gradient');
+            if (hero) {
+                hero.id = hero.id || 'hero';
+                observer.observe(hero);
+            }
+
+            // Send remaining time on page unload
+            window.addEventListener('beforeunload', () => {
+                Object.keys(sectionStartTimes).forEach(id => {
+                    const timeSpent = Math.round((Date.now() - sectionStartTimes[id]) / 1000);
+                    if (timeSpent > 2) {
+                        gtag('event', 'section_time_spent', {
+                            section_name: id,
+                            time_seconds: timeSpent,
+                            event_category: 'engagement'
+                        });
+                    }
+                });
+            });
+        })();
+
+        // --- Project Card Click Tracking ---
+        document.querySelectorAll('.project-summary-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const projectId = card.getAttribute('data-project-id') || card.querySelector('h3')?.textContent?.trim() || 'unknown';
+                gtag('event', 'project_card_click', {
+                    project_name: projectId,
+                    event_category: 'engagement'
+                });
+            });
+        });
+
+        // --- Outbound Link Tracking ---
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.addEventListener('click', () => {
+                gtag('event', 'outbound_click', {
+                    link_url: link.href,
+                    link_text: link.textContent.trim().substring(0, 50),
+                    event_category: 'clicks'
+                });
+            });
+        });
+
+        // --- Scroll Depth Milestones ---
+        (function () {
+            const milestones = [25, 50, 75, 100];
+            const reached = {};
+
+            window.addEventListener('scroll', function () {
+                const scrollPercent = Math.round(
+                    (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+                );
+                milestones.forEach(m => {
+                    if (scrollPercent >= m && !reached[m]) {
+                        reached[m] = true;
+                        gtag('event', 'scroll_depth', {
+                            depth_percent: m,
+                            event_category: 'engagement'
+                        });
+                    }
+                });
+            }, { passive: true });
+        })();
+
+        // --- CTA Button Tracking ---
+        document.querySelectorAll('header a, #contact a').forEach(btn => {
+            btn.addEventListener('click', () => {
+                gtag('event', 'cta_click', {
+                    button_text: btn.textContent.trim(),
+                    button_location: btn.closest('header') ? 'hero' : 'contact',
+                    event_category: 'conversions'
+                });
+            });
         });
     </script>
 
