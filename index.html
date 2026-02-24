@@ -85,6 +85,10 @@
             background: url('images/A_cinematic_wideangle_2k_202602150542.jpeg') center/cover;
         }
 
+        .smartcv-bg {
+            background: url('images/smartcv-workflow.png') center/cover;
+        }
+
         /* Typography & Titles */
         .section-title {
             /* From Home */
@@ -770,6 +774,361 @@
                 width: 100%;
             }
         }
+
+        /* ===== World Map Chart ===== */
+        .wm-chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            aspect-ratio: 4 / 3;
+            margin: 0 auto;
+            background: #fafbfc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: visible;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Quadrant fills */
+        .wm-chart-container::before,
+        .wm-chart-container::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .wm-chart-container::before {
+            top: 0;
+            left: 0;
+            background: rgba(219, 234, 254, 0.25);
+            border-radius: 16px 0 0 0;
+        }
+
+        .wm-chart-container::after {
+            top: 0;
+            right: 0;
+            background: rgba(209, 250, 229, 0.3);
+            border-radius: 0 16px 0 0;
+        }
+
+        .wm-quad-bl,
+        .wm-quad-br {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .wm-quad-bl {
+            bottom: 0;
+            left: 0;
+            background: rgba(243, 244, 246, 0.5);
+            border-radius: 0 0 0 16px;
+        }
+
+        .wm-quad-br {
+            bottom: 0;
+            right: 0;
+            background: rgba(254, 249, 195, 0.2);
+            border-radius: 0 0 16px 0;
+        }
+
+        /* Crosshair lines */
+        .wm-axis-x,
+        .wm-axis-y {
+            position: absolute;
+            z-index: 1;
+        }
+
+        .wm-axis-x {
+            top: 50%;
+            left: 3%;
+            width: 94%;
+            height: 0;
+            border-top: 1.5px dashed #cbd5e1;
+        }
+
+        .wm-axis-y {
+            left: 50%;
+            top: 3%;
+            height: 94%;
+            width: 0;
+            border-left: 1.5px dashed #cbd5e1;
+        }
+
+        /* Edge axis labels */
+        .wm-label {
+            position: absolute;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #64748b;
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        .wm-label-top {
+            top: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .wm-label-top .wm-arrow {
+            color: #3b82f6;
+        }
+
+        .wm-label-bottom {
+            bottom: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .wm-label-bottom .wm-arrow {
+            color: #3b82f6;
+        }
+
+        .wm-label-left {
+            left: -10px;
+            top: 50%;
+            transform: rotate(-90deg) translateX(-50%);
+            transform-origin: left center;
+        }
+
+        .wm-label-left .wm-arrow {
+            color: #3b82f6;
+        }
+
+        .wm-label-right {
+            right: -10px;
+            top: 50%;
+            transform: rotate(90deg) translateX(50%);
+            transform-origin: right center;
+        }
+
+        .wm-label-right .wm-arrow {
+            color: #3b82f6;
+        }
+
+        /* Quadrant corner labels */
+        .wm-qlabel {
+            position: absolute;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 2;
+            opacity: 0.45;
+        }
+
+        .wm-qlabel-tl {
+            top: 12px;
+            left: 14px;
+            color: #3b82f6;
+        }
+
+        .wm-qlabel-tr {
+            top: 12px;
+            right: 14px;
+            color: #16a34a;
+        }
+
+        .wm-qlabel-bl {
+            bottom: 12px;
+            left: 14px;
+            color: #64748b;
+        }
+
+        .wm-qlabel-br {
+            bottom: 12px;
+            right: 14px;
+            color: #d97706;
+        }
+
+        /* Dots */
+        .wm-dot {
+            position: absolute;
+            z-index: 5;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+            transition: transform 0.25s cubic-bezier(.4, 0, .2, 1), box-shadow 0.25s ease;
+        }
+
+        .wm-dot:hover {
+            transform: translate(-50%, -50%) scale(1.18);
+            z-index: 10;
+        }
+
+        .wm-dot-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+            border: 2.5px solid #fff;
+            overflow: hidden;
+            transition: box-shadow 0.25s ease;
+            background: #fff;
+        }
+
+        .wm-dot:hover .wm-dot-circle {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+        }
+
+        .wm-dot-circle img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+
+        .wm-dot-circle i {
+            font-size: 20px;
+        }
+
+        .wm-dot-label {
+            position: absolute;
+            left: 50%;
+            top: calc(100% + 5px);
+            transform: translateX(-50%);
+            text-align: center;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .wm-dot-label-name {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1.2;
+        }
+
+        .wm-dot-label-sub {
+            font-size: 0.58rem;
+            color: #64748b;
+            line-height: 1.2;
+        }
+
+        /* Tooltip card */
+        .wm-tooltip {
+            position: absolute;
+            bottom: calc(100% + 14px);
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(203, 213, 225, 0.6);
+            border-radius: 12px;
+            padding: 14px 18px;
+            min-width: 200px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.22s ease, transform 0.22s ease;
+            z-index: 20;
+        }
+
+        .wm-dot:hover .wm-tooltip {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .wm-tooltip-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        .wm-tooltip-role {
+            font-size: 0.72rem;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+
+        .wm-tooltip-cta {
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: #3b82f6;
+        }
+
+        .wm-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: rgba(255, 255, 255, 0.92);
+        }
+
+        /* Highlight experience card on scroll */
+        @keyframes wmHighlight {
+            0% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.15);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+            }
+        }
+
+        .wm-highlight {
+            animation: wmHighlight 1.5s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .wm-chart-container {
+                aspect-ratio: 3 / 4;
+                max-width: 100%;
+                border-radius: 12px;
+            }
+
+            .wm-dot-circle {
+                width: 36px;
+                height: 36px;
+            }
+
+            .wm-dot-circle img {
+                width: 22px;
+                height: 22px;
+            }
+
+            .wm-dot-circle i {
+                font-size: 16px;
+            }
+
+            .wm-dot-label-name {
+                font-size: 0.6rem;
+            }
+
+            .wm-dot-label-sub {
+                font-size: 0.5rem;
+            }
+
+            .wm-qlabel {
+                font-size: 0.45rem;
+            }
+
+            .wm-label {
+                font-size: 0.55rem;
+            }
+
+            .wm-tooltip {
+                min-width: 160px;
+                padding: 10px 14px;
+            }
+        }
     </style>
 </head>
 
@@ -811,6 +1170,7 @@
                     <!-- Added active class dynamically via JS if needed, or manually set for default view -->
                     <a href="#about" class="nav-link text-gray-700">About</a>
                     <a href="#experience" class="nav-link text-gray-700">Experience</a>
+                    <a href="#world-map" class="nav-link text-gray-700">World Map</a>
                     <a href="#projects" class="nav-link text-gray-700">Projects</a>
                     <a href="#value" class="nav-link text-gray-700">My Value</a>
                     <a href="#skills" class="nav-link text-gray-700">Skills</a>
@@ -831,6 +1191,7 @@
         <div id="mobile-menu" class="md:hidden hidden bg-white shadow-md absolute w-full">
             <a href="#about" class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50">About</a>
             <a href="#experience" class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50">Experience</a>
+            <a href="#world-map" class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50">World Map</a>
             <a href="#projects" class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50">Projects</a>
             <a href="#value" class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50">My Value</a>
             <a href="#skills" class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50">Skills</a>
@@ -977,7 +1338,7 @@
 
                 <!-- L'Oreal Card - Using EXACT Structure & Classes from Previous -->
                 <!-- L'Oreal Card -->
-                <div class="experience-card bg-white rounded-xl overflow-hidden mb-8">
+                <div id="exp-loreal" class="experience-card bg-white rounded-xl overflow-hidden mb-8">
                     <div class="flex flex-col md:flex-row">
                         <div
                             class="md:w-1/4 bg-gradient-to-br from-blue-500 to-blue-700 p-8 flex items-center justify-center">
@@ -1041,7 +1402,7 @@
                 </div>
 
                 <!-- Nissan Card - Using EXACT Structure & Classes from Previous -->
-                <div class="experience-card bg-white rounded-xl overflow-hidden mb-8">
+                <div id="exp-nissan" class="experience-card bg-white rounded-xl overflow-hidden mb-8">
                     <div class="flex flex-col md:flex-row">
                         <div class="md:w-1/4 bg-gray-800 p-8 flex items-center justify-center">
                             <!-- Specific background class -->
@@ -1109,7 +1470,7 @@
                 </div>
 
                 <!-- Bijouterie Pala Card - Using EXACT Structure & Classes from Previous -->
-                <div class="experience-card bg-white rounded-xl overflow-hidden mb-8">
+                <div id="exp-bijou" class="experience-card bg-white rounded-xl overflow-hidden mb-8">
                     <div class="flex flex-col md:flex-row">
                         <div class="md:w-1/4 bg-amber-700 p-8 flex items-center justify-center">
                             <!-- Specific background class -->
@@ -1178,7 +1539,7 @@
                 </div>
 
                 <!-- Tripura Welfare Research Society Card -->
-                <div class="experience-card bg-white rounded-xl overflow-hidden mb-8">
+                <div id="exp-ngo" class="experience-card bg-white rounded-xl overflow-hidden mb-8">
                     <div class="flex flex-col md:flex-row">
                         <div class="md:w-1/4 bg-green-700 p-8 flex items-center justify-center">
                             <div class="text-center">
@@ -1241,7 +1602,7 @@
 
                 <!-- Maruti Suzuki India Limited Card -->
                 <!-- Maruti Suzuki Card - Using EXACT Structure & Classes from Previous -->
-                <div class="experience-card bg-white rounded-xl overflow-hidden"> <!-- Removed mb-8 -->
+                <div id="exp-maruti" class="experience-card bg-white rounded-xl overflow-hidden"> <!-- Removed mb-8 -->
                     <div class="flex flex-col md:flex-row">
                         <div class="md:w-1/4 bg-red-700 p-8 flex items-center justify-center">
                             <!-- Specific background class -->
@@ -1313,6 +1674,507 @@
         <!-- ===================================================================== -->
 
 
+        <!-- ===================================================================== -->
+        <!--            WHERE YOU PLAY — WORLD MAP CHART                         -->
+        <!-- ===================================================================== -->
+        <section id="world-map" class="py-20 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-14">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 section-title inline-block"
+                        style="font-family:'Playfair Display',serif;">Tejaswee's Positioning Map</h2>
+                    <p class="text-gray-500 max-w-xl mx-auto mt-6 text-sm">A visual snapshot of his journey across
+                        industries, roles
+                        &amp; creative ventures</p>
+                </div>
+
+                <!-- Chart Wrapper (extra padding for axis labels) -->
+                <div style="position:relative; padding: 40px 30px 40px 30px;">
+
+                    <!-- Axis Labels outside the box -->
+                    <div class="wm-label wm-label-top"><span class="wm-arrow">▲</span> Experimental / Exploratory Path
+                    </div>
+                    <div class="wm-label wm-label-bottom"><span class="wm-arrow">▼</span> Safe / Predictable Path</div>
+                    <div class="wm-label wm-label-left"><span class="wm-arrow">◀</span> Big Corporate Systems</div>
+                    <div class="wm-label wm-label-right">Creator / Builder World <span class="wm-arrow">▶</span></div>
+
+                    <!-- Chart Container -->
+                    <div class="wm-chart-container" id="wm-chart">
+
+                        <!-- Quadrant background fills (bottom halves via divs) -->
+                        <div class="wm-quad-bl"></div>
+                        <div class="wm-quad-br"></div>
+
+                        <!-- Crosshair axes -->
+                        <div class="wm-axis-x"></div>
+                        <div class="wm-axis-y"></div>
+
+                        <!-- Quadrant corner labels -->
+                        <div class="wm-qlabel wm-qlabel-tl">Corporate Innovator</div>
+                        <div class="wm-qlabel wm-qlabel-tr">Builder / Maker</div>
+                        <div class="wm-qlabel wm-qlabel-bl">Career Climber</div>
+                        <div class="wm-qlabel wm-qlabel-br">Creative Professional</div>
+
+                        <!-- ========== DOTS ========== -->
+
+                        <!-- 1. L'Oréal -->
+                        <div class="wm-dot" style="left:18%; top:22%;" data-target="exp-loreal"
+                            data-title="L'Oréal Paris" data-role="E-Commerce & Advocacy Jr. Manager · Europe Zone"
+                            data-period="Sep 2023 – Sep 2024">
+                            <div class="wm-dot-circle" style="background:#fff;">
+                                <img src="https://logo.clearbit.com/loreal.com" alt="L'Oréal"
+                                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                <i class="fas fa-paint-brush" style="display:none; color:#e4002b;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">L'Oréal</div>
+                                <div class="wm-dot-label-sub">Brand & Marketing Ops</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">L'Oréal Paris</div>
+                                <div class="wm-tooltip-role">E-Commerce & Advocacy Jr. Manager · Europe Zone</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Nissan -->
+                        <div class="wm-dot" style="left:26%; top:40%;" data-target="exp-nissan"
+                            data-title="Nissan Motor Corporation" data-role="Product Marketing Trainee · AMIEO Region">
+                            <div class="wm-dot-circle" style="background:#fff;">
+                                <img src="https://logo.clearbit.com/nissan.com" alt="Nissan"
+                                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                <i class="fas fa-car" style="display:none; color:#c3002f;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Nissan</div>
+                                <div class="wm-dot-label-sub">Corporate Strategy</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Nissan Motor Corporation</div>
+                                <div class="wm-tooltip-role">Product Marketing Trainee · AMIEO Region</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Maruti Suzuki -->
+                        <div class="wm-dot" style="left:28%; top:60%;" data-target="exp-maruti"
+                            data-title="Maruti Suzuki India Ltd." data-role="Quality Control Intern">
+                            <div class="wm-dot-circle" style="background:#fff;">
+                                <img src="https://logo.clearbit.com/marutisuzuki.com" alt="Maruti Suzuki"
+                                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                <i class="fas fa-industry" style="display:none; color:#0055a5;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Maruti Suzuki</div>
+                                <div class="wm-dot-label-sub">Auto Industry</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Maruti Suzuki India Ltd.</div>
+                                <div class="wm-tooltip-role">Quality Control Intern · New Delhi</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Engineer Officer (Indian Army) -->
+                        <div class="wm-dot" style="left:16%; top:76%;" data-target="about" data-title="Engineer Officer"
+                            data-role="Indian Army · Traditional & Secure">
+                            <div class="wm-dot-circle" style="background:#4a5568;">
+                                <i class="fas fa-shield-alt" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Engineer Officer</div>
+                                <div class="wm-dot-label-sub">Indian Army</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Engineer Officer</div>
+                                <div class="wm-tooltip-role">Indian Army · Traditional & Secure</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- 5. NGO -->
+                        <div class="wm-dot" style="left:47%; top:59%;" data-target="exp-ngo"
+                            data-title="Tripura Welfare Research Society" data-role="Marketing & Project Leadership">
+                            <div class="wm-dot-circle" style="background:#16a34a;">
+                                <i class="fas fa-hand-holding-heart" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">NGO</div>
+                                <div class="wm-dot-label-sub">Humanitarian / Social Impact</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Tripura Welfare Research Society</div>
+                                <div class="wm-tooltip-role">Marketing & Project Leadership · Project Manager</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- 6. AI Chatbot -->
+                        <div class="wm-dot" style="left:55%; top:18%;" data-target="projects" data-title="AI Chatbot"
+                            data-role="AI Chatbot · Apps · Workflows">
+                            <div class="wm-dot-circle" style="background:#1a1a2e;">
+                                <i class="fas fa-robot" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">AI Chatbot</div>
+                                <div class="wm-dot-label-sub">Apps · Workflows</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">AI Chatbot</div>
+                                <div class="wm-tooltip-role">AI Chatbot · Apps · Workflows</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- 7. AI Voice Projects -->
+                        <div class="wm-dot" style="left:58%; top:32%;" data-target="projects"
+                            data-title="AI Voice Projects" data-role="AI Voice & Audio">
+                            <div class="wm-dot-circle" style="background:#dc2626;">
+                                <i class="fas fa-microphone-alt" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">AI Voice Projects</div>
+                                <div class="wm-dot-label-sub">AI Voice & Audio</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">AI Voice Projects</div>
+                                <div class="wm-tooltip-role">AI Voice & Audio</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- 8. Music Channel -->
+                        <div class="wm-dot" style="left:82%; top:12%;" data-target="projects" data-title="Music Channel"
+                            data-role="Music Content Creator">
+                            <div class="wm-dot-circle" style="background:#16a34a;">
+                                <i class="fas fa-music" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Music Channel</div>
+                                <div class="wm-dot-label-sub">Music Content Creator</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Music Channel</div>
+                                <div class="wm-tooltip-role">Music Content Creator</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- 9. Gaming YouTube -->
+                        <div class="wm-dot" style="left:68%; top:37%;" data-target="projects"
+                            data-title="Gaming YouTube" data-role="Gaming Channel (School)">
+                            <div class="wm-dot-circle" style="background:#8b5cf6;">
+                                <i class="fas fa-gamepad" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Gaming YouTube</div>
+                                <div class="wm-dot-label-sub">Gaming Channel</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Gaming YouTube</div>
+                                <div class="wm-tooltip-role">Wargaming YouTube Partnership · 800k+ views</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- 10. Digital Marketing -->
+                        <div class="wm-dot" style="left:66%; top:58%;" data-target="exp-bijou"
+                            data-title="Digital Marketing" data-role="Freelance · Paid Ads & Campaigns">
+                            <div class="wm-dot-circle" style="background:#9333ea;">
+                                <i class="fas fa-bullhorn" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Digital Marketing</div>
+                                <div class="wm-dot-label-sub">Freelance · Paid Ads</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Digital Marketing</div>
+                                <div class="wm-tooltip-role">Freelance · Paid Ads & Campaigns</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- 11. Bijouterie Pala -->
+                        <div class="wm-dot" style="left:78%; top:70%;" data-target="exp-bijou"
+                            data-title="Bijouterie Pala" data-role="Digital Marketing Intern · Luxury Goods">
+                            <div class="wm-dot-circle" style="background:#d97706;">
+                                <i class="fas fa-gem" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Bijouterie Pala</div>
+                                <div class="wm-dot-label-sub">Jewellery · Creative Retail</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Bijouterie Pala</div>
+                                <div class="wm-tooltip-role">Digital Marketing Intern · Luxury Goods</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                    </div><!-- /wm-chart-container -->
+                </div><!-- /chart wrapper -->
+            </div>
+        </section>
+
+
+        <!-- ===================================================================== -->
+        <!--            SKILL MIX POSITIONING CHART                               -->
+        <!-- ===================================================================== -->
+        <section id="skill-mix" class="py-20 bg-gray-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-14">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 section-title inline-block"
+                        style="font-family:'Playfair Display',serif;">Tejaswee's Skill Mix</h2>
+                    <p class="text-gray-500 max-w-xl mx-auto mt-6 text-sm">Where his capabilities live across systems,
+                        story &amp; performance</p>
+                </div>
+
+                <!-- Chart Wrapper -->
+                <div style="position:relative; padding: 40px 30px 40px 30px;">
+
+                    <!-- Axis Labels -->
+                    <div class="wm-label wm-label-top"><span class="wm-arrow">▲</span> Front-End (Audience, Brand &amp;
+                        Performance)</div>
+                    <div class="wm-label wm-label-bottom"><span class="wm-arrow">▼</span> Back-End (Operations &amp;
+                        Analysis)</div>
+                    <div class="wm-label wm-label-left"><span class="wm-arrow">◀</span> Data / Systems / Automation
+                    </div>
+                    <div class="wm-label wm-label-right">Story / Content / Creative <span class="wm-arrow">▶</span>
+                    </div>
+
+                    <!-- Chart Container -->
+                    <div class="wm-chart-container" id="sm-chart">
+
+                        <!-- Quadrant fills -->
+                        <div class="wm-quad-bl"></div>
+                        <div class="wm-quad-br"></div>
+
+                        <!-- Crosshair axes -->
+                        <div class="wm-axis-x"></div>
+                        <div class="wm-axis-y"></div>
+
+                        <!-- Quadrant labels -->
+                        <div class="wm-qlabel wm-qlabel-tl">Data-Driven Operator</div>
+                        <div class="wm-qlabel wm-qlabel-tr">Growth Creator</div>
+                        <div class="wm-qlabel wm-qlabel-bl">Systems Builder</div>
+                        <div class="wm-qlabel wm-qlabel-br">Pure Creative</div>
+
+                        <!-- Tagline callout -->
+                        <div
+                            style="position:absolute; left:38%; top:10%; z-index:3; background:rgba(255,255,255,0.85); backdrop-filter:blur(8px); border:1px solid #e2e8f0; border-radius:8px; padding:8px 14px; font-size:0.7rem; font-weight:600; color:#1e293b; white-space:nowrap; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                            Data-sharp. Content-driven.<br>Built for front-end performance.
+                        </div>
+
+                        <!-- ========== SKILL DOTS ========== -->
+
+                        <!-- TL QUADRANT: Data-Driven Operator -->
+
+                        <!-- KPI Dashboards -->
+                        <div class="wm-dot" style="left:22%; top:24%;" data-target="skills">
+                            <div class="wm-dot-circle" style="background:#047857;">
+                                <i class="fas fa-chart-bar" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">KPI Dashboards</div>
+                                <div class="wm-dot-label-sub">CTR · CPA · ROAS</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">KPI Dashboards</div>
+                                <div class="wm-tooltip-role">Performance tracking with CTR, CPA, ROAS & custom KPI
+                                    frameworks</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- Google Ads / Meta Ads -->
+                        <div class="wm-dot" style="left:28%; top:34%;" data-target="skills">
+                            <div class="wm-dot-circle" style="background:#059669;">
+                                <i class="fab fa-google" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Google / Meta Ads</div>
+                                <div class="wm-dot-label-sub">Paid Performance</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Google Ads / Meta Ads</div>
+                                <div class="wm-tooltip-role">Paid Performance Campaigns across Google & Meta platforms
+                                </div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- 16 EU Markets -->
+                        <div class="wm-dot" style="left:34%; top:42%;" data-target="skills">
+                            <div class="wm-dot-circle" style="background:#0d9488;">
+                                <i class="fas fa-globe-europe" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">16 EU Markets</div>
+                                <div class="wm-dot-label-sub">Cross-Market Analytics</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">16 EU Markets</div>
+                                <div class="wm-tooltip-role">Cross-Market Analytics across European zone</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- TR QUADRANT: Growth Creator -->
+
+                        <!-- AI Voice & Content -->
+                        <div class="wm-dot" style="left:85%; top:14%;" data-target="projects">
+                            <div class="wm-dot-circle" style="background:#d97706;">
+                                <i class="fas fa-microphone-alt" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">AI Voice & Content</div>
+                                <div class="wm-dot-label-sub">Audio Branding</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">AI Voice & Content</div>
+                                <div class="wm-tooltip-role">Voice cloning · Audio branding · AI-generated content</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- Reels & Social -->
+                        <div class="wm-dot" style="left:68%; top:18%;" data-target="projects">
+                            <div class="wm-dot-circle" style="background:#eab308;">
+                                <i class="fab fa-instagram" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Reels & Social</div>
+                                <div class="wm-dot-label-sub">Content · Reels Strategy</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Reels & Social</div>
+                                <div class="wm-tooltip-role">Short-form content creation · Reels strategy & distribution
+                                </div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- AI Music Channel -->
+                        <div class="wm-dot" style="left:74%; top:26%;" data-target="projects">
+                            <div class="wm-dot-circle" style="background:#16a34a;">
+                                <i class="fas fa-music" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">AI Music Channel</div>
+                                <div class="wm-dot-label-sub">3 Songs · Reels Launch</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">AI Music Channel</div>
+                                <div class="wm-tooltip-role">AI Music · 3 Songs · Reels Launch</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- Gaming YouTube -->
+                        <div class="wm-dot" style="left:64%; top:34%;" data-target="projects">
+                            <div class="wm-dot-circle" style="background:#0d9488;">
+                                <i class="fas fa-gamepad" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Gaming YouTube</div>
+                                <div class="wm-dot-label-sub">700K Views · 2.2K Subs</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Gaming YouTube</div>
+                                <div class="wm-tooltip-role">700K Views · 2.2K Subs · 6 Months</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- BL QUADRANT: Systems Builder -->
+
+                        <!-- SQL & Data Analysis -->
+                        <div class="wm-dot" style="left:30%; top:56%;" data-target="skills">
+                            <div class="wm-dot-circle" style="background:#2563eb;">
+                                <i class="fas fa-database" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">SQL & Data</div>
+                                <div class="wm-dot-label-sub">Queries & Analytics</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">SQL & Data Analysis</div>
+                                <div class="wm-tooltip-role">SQL Queries & Analytics pipelines</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- Python Automation -->
+                        <div class="wm-dot" style="left:24%; top:64%;" data-target="skills">
+                            <div class="wm-dot-circle" style="background:#1d4ed8;">
+                                <i class="fab fa-python" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Python</div>
+                                <div class="wm-dot-label-sub">Scripts & Automation</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Python Automation</div>
+                                <div class="wm-tooltip-role">Scripts & Task Automation</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- Excel / Sheets -->
+                        <div class="wm-dot" style="left:30%; top:76%;" data-target="skills">
+                            <div class="wm-dot-circle" style="background:#3b82f6;">
+                                <i class="fas fa-file-excel" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Excel / Sheets</div>
+                                <div class="wm-dot-label-sub">Reporting & Models</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Excel / Sheets</div>
+                                <div class="wm-tooltip-role">Advanced Reporting & Financial Models</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- BR QUADRANT: Pure Creative -->
+
+                        <!-- Music Production -->
+                        <div class="wm-dot" style="left:68%; top:58%;" data-target="projects">
+                            <div class="wm-dot-circle" style="background:#9333ea;">
+                                <i class="fas fa-headphones" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Music Production</div>
+                                <div class="wm-dot-label-sub">Original Songs</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Music Production</div>
+                                <div class="wm-tooltip-role">Original Song Creation & Audio Production</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                        <!-- Video Editing -->
+                        <div class="wm-dot" style="left:74%; top:68%;" data-target="projects">
+                            <div class="wm-dot-circle" style="background:#7c3aed;">
+                                <i class="fas fa-film" style="color:#fff;"></i>
+                            </div>
+                            <div class="wm-dot-label">
+                                <div class="wm-dot-label-name">Video Editing</div>
+                                <div class="wm-dot-label-sub">Editing & Post</div>
+                            </div>
+                            <div class="wm-tooltip">
+                                <div class="wm-tooltip-title">Video Editing</div>
+                                <div class="wm-tooltip-role">Video Editing & Post-Production</div>
+                                <div class="wm-tooltip-cta">Click to explore →</div>
+                            </div>
+                        </div>
+
+                    </div><!-- /wm-chart-container -->
+                </div><!-- /chart wrapper -->
+            </div>
+        </section>
+
+
         <!-- Projects Section -->
         <section id="projects" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1324,6 +2186,23 @@
 
                 <!-- Project Summary Cards Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Project Summary: SmartCV Engine -->
+                    <div class="project-summary-card" data-project-id="smartcv">
+                        <div class="h-48 bg-cover bg-center smartcv-bg"></div>
+                        <div class="p-6">
+                            <div class="mb-2">
+                                <span class="project-summary-tag !bg-violet-100 !text-violet-800">AI Automation</span>
+                                <span class="project-summary-tag !bg-cyan-100 !text-cyan-800">Workflow</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 mt-2 text-gray-800">🔧 SmartCV Engine</h3>
+                            <p class="text-sm text-gray-600 mb-4 line-clamp-3">End-to-end AI pipeline that tailors CVs
+                                to any job description in under 2 minutes. Multi-node workflow with smart matching,
+                                auto-writing, and PDF output.</p>
+                            <div class="text-right text-violet-600 text-sm font-medium hover:underline">View Details <i
+                                    class="fas fa-arrow-right ml-1 text-xs"></i></div>
+                        </div>
+                    </div>
 
                     <!-- Project Summary: Quick Commerce Intel -->
                     <div class="project-summary-card" data-project-id="qcomm">
@@ -2114,6 +2993,145 @@
                             <a href="https://cavemans-bbq-pb81.vercel.app/" target="_blank"
                                 class="pdf-badge !bg-orange-600 !text-white hover:!bg-orange-700">Visit Site <i
                                     class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                            <button class="close-detail-btn text-red-500 hover:text-red-700 text-sm font-medium">Close
+                                Details <i class="fas fa-times ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DETAILED VIEW: SmartCV Engine -->
+                <div id="project-detail-smartcv" class="project-detail-card hidden">
+                    <div class="smartcv-bg project-image"></div>
+                    <div class="project-content">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span
+                                    class="bg-violet-100 text-violet-800 text-xs px-3 py-1 rounded-full font-medium">AI
+                                    Automation</span>
+                                <span
+                                    class="bg-cyan-100 text-cyan-800 text-xs px-3 py-1 rounded-full font-medium ml-2">Personal
+                                    Project</span>
+                            </div>
+                            <span class="text-gray-500 text-sm"><i class="fas fa-calendar-alt mr-1"></i>
+                                2025–Present</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">🔧 SmartCV Engine</h3>
+                        <p class="text-gray-700 mb-6">Every job application asks for a "tailored CV." But tailoring
+                            manually — reading the JD, rewriting bullets, repositioning skills — takes <strong>30–45
+                                minutes per role</strong>. Multiply that by 50+ applications and it becomes a full-time
+                            job in itself.<br><br>I didn't want to send generic CVs. But I also couldn't afford to spend
+                            hours rewriting the same document endlessly. <strong>So I built the solution.</strong></p>
+
+                        <div class="mb-6">
+                            <h4 class="font-bold mb-2 text-gray-800">What It Does:</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Takes any <strong>Job Description</strong> as input</li>
+                                <li>Cross-references it against a <strong>Master Career File</strong> (all experience,
+                                    skills, metrics, stories)</li>
+                                <li>Runs a <strong>smart compatibility check</strong> — does the background actually
+                                    match this role?</li>
+                                <li>Automatically writes a tailored <strong>Professional Summary, Experience Section,
+                                        and Skills list</strong> — tuned to JD language</li>
+                                <li>Outputs a <strong>clean, formatted PDF</strong> ready to send — in seconds, not
+                                    hours</li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="font-bold mb-3 text-gray-800">Multi-Node AI Pipeline:</h4>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+                                    <thead class="bg-gray-800 text-white">
+                                        <tr>
+                                            <th class="px-4 py-2 text-left">Node</th>
+                                            <th class="px-4 py-2 text-left">Function</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white">
+                                        <tr class="border-b">
+                                            <td class="px-4 py-2 font-medium text-green-700">📥 Job Description Input
+                                            </td>
+                                            <td class="px-4 py-2 text-gray-600">Pastes raw JD text</td>
+                                        </tr>
+                                        <tr class="border-b bg-gray-50">
+                                            <td class="px-4 py-2 font-medium text-yellow-700">🎯 Tailor Resume Strategy
+                                            </td>
+                                            <td class="px-4 py-2 text-gray-600">Analyzes JD vs. master career file,
+                                                identifies fit and gaps</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="px-4 py-2 font-medium text-blue-700">✍️ Write Resume Summary</td>
+                                            <td class="px-4 py-2 text-gray-600">Generates a targeted professional
+                                                summary</td>
+                                        </tr>
+                                        <tr class="border-b bg-gray-50">
+                                            <td class="px-4 py-2 font-medium text-blue-700">📝 Write Experience</td>
+                                            <td class="px-4 py-2 text-gray-600">Rewrites work experience bullets in JD
+                                                language</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="px-4 py-2 font-medium text-purple-700">🧠 Extract Skills</td>
+                                            <td class="px-4 py-2 text-gray-600">Surfaces the most relevant skills from
+                                                full toolkit</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-2 font-medium text-green-700">📄 Tailored Resume</td>
+                                            <td class="px-4 py-2 text-gray-600">Compiles everything into a polished,
+                                                formatted CV</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2 italic">Supporting assets: Master Career Dossier,
+                                Standard Operating Procedure, Job Search & Visa Strategy document</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                            <div class="bg-violet-50 p-3 rounded-lg text-center border border-violet-100">
+                                <p class="font-bold text-xl text-violet-700">45→2</p>
+                                <p class="text-xs text-gray-600">Minutes Saved</p>
+                            </div>
+                            <div class="bg-cyan-50 p-3 rounded-lg text-center border border-cyan-100">
+                                <p class="font-bold text-xl text-cyan-700">6</p>
+                                <p class="text-xs text-gray-600">AI Nodes</p>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-lg text-center border border-green-100">
+                                <p class="font-bold text-xl text-green-700">EN/FR</p>
+                                <p class="text-xs text-gray-600">Dual Language</p>
+                            </div>
+                            <div class="bg-amber-50 p-3 rounded-lg text-center border border-amber-100">
+                                <p class="font-bold text-xl text-amber-700">Daily</p>
+                                <p class="text-xs text-gray-600">Active Use</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-gradient-to-r from-violet-50 to-cyan-50 border border-violet-100 rounded-lg p-5 mb-6">
+                            <h4 class="font-bold mb-2 text-gray-800"><i
+                                    class="fas fa-lightbulb text-yellow-500 mr-2"></i>Why This Matters:</h4>
+                            <p class="text-sm text-gray-700">Most people talk about "using AI for productivity." I built
+                                a system that actually does it — end-to-end, with real logic, not just a ChatGPT prompt.
+                                This project reflects how I think: <strong>if a process is repetitive, it should be
+                                    automated. If data exists, it should inform the output.</strong> And if I'm going to
+                                do something 50 times, I'd rather engineer it once and run it forever.</p>
+                        </div>
+
+                        <h4 class="font-semibold mb-3 text-sm text-gray-800">Stack / Tools:</h4>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="skill-tag">AI Workflow Builder</span>
+                            <span class="skill-tag">Prompt Engineering</span>
+                            <span class="skill-tag">PDF Formatting</span>
+                            <span class="skill-tag">Multi-Node Pipeline</span>
+                            <span class="skill-tag">Knowledge Management</span>
+                        </div>
+
+                        <div class="mt-4 border-t pt-4 flex justify-center items-center gap-4 flex-wrap">
+                            <a href="https://gemini.google.com/share/9041e5c0ffc1" target="_blank"
+                                class="pdf-badge !bg-violet-600 !text-white hover:!bg-violet-700">Live App <i
+                                    class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                            <a href="https://opal.google/open/1HRQRWsBs8GT2Y3BxYwQI9-hkGl4q1AhW?usp=sharing"
+                                target="_blank" class="pdf-badge !bg-cyan-600 !text-white hover:!bg-cyan-700">Workflow
+                                Automation <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
                             <button class="close-detail-btn text-red-500 hover:text-red-700 text-sm font-medium">Close
                                 Details <i class="fas fa-times ml-1"></i></button>
                         </div>
@@ -2971,6 +3989,28 @@
                 link.classList.remove('bg-blue-100', 'font-semibold');
                 if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add('bg-blue-100', 'font-semibold'); // Example active style for mobile
+                }
+            });
+        });
+
+        // --- World Map Chart: Click-to-Scroll ---
+        document.querySelectorAll('.wm-dot').forEach(dot => {
+            dot.addEventListener('click', function () {
+                const targetId = this.getAttribute('data-target');
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                    // Smooth scroll with offset for fixed nav
+                    const offset = 80;
+                    const y = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+
+                    // Highlight the target card
+                    setTimeout(() => {
+                        targetEl.classList.add('wm-highlight');
+                        targetEl.addEventListener('animationend', () => {
+                            targetEl.classList.remove('wm-highlight');
+                        }, { once: true });
+                    }, 600);
                 }
             });
         });
