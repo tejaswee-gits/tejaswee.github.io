@@ -115,7 +115,7 @@ Click any project card to expand into a detailed case study with metrics, tools,
 ## 📬 Contact
 
 - 📧 **Email:** [t.tejaswee8@gmail.com](mailto:t.tejaswee8@gmail.com)
-- 🔗 **LinkedIn:** [linkedin.com/in/tejaswee-singh](https://linkedin.com/in/tejaswee-singh)
+- 🔗 **LinkedIn:** [linkedin.com/in/tejaswee-singh](https://linkedin.com/in/Tejaswee98)
 - 📍 **Location:** Paris, France
 - 📞 **Phone:** +33 745 740 529
 
