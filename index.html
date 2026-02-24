@@ -1129,6 +1129,308 @@
                 padding: 10px 14px;
             }
         }
+
+        /* ===== COMPREHENSIVE MOBILE STYLES ===== */
+        @media (max-width: 640px) {
+
+            /* --- Intro Overlay --- */
+            .intro-text-container {
+                font-size: 2rem;
+                padding: 14px 24px;
+                letter-spacing: -1px;
+            }
+
+            .intro-loading-bar-container {
+                width: 140px;
+            }
+
+            /* --- Navigation --- */
+            nav .text-xl {
+                font-size: 1rem;
+            }
+
+            /* --- Hero Section --- */
+            header.hero-gradient {
+                padding-top: 5rem;
+                padding-bottom: 3rem;
+            }
+
+            header.hero-gradient h1 {
+                font-size: 2rem !important;
+                line-height: 1.2;
+            }
+
+            header.hero-gradient h2 {
+                font-size: 1.25rem !important;
+            }
+
+            header.hero-gradient p {
+                font-size: 0.95rem;
+            }
+
+            /* Shrink profile image on mobile */
+            header.hero-gradient .w-64,
+            header.hero-gradient .md\:w-80 {
+                width: 11rem !important;
+                height: 11rem !important;
+            }
+
+            /* Hide "Click me!" popup on mobile — too cluttered */
+            header.hero-gradient .animate-bounce {
+                display: none !important;
+            }
+
+            /* Make GitHub icon smaller and less intrusive */
+            header.hero-gradient .absolute.-right-12,
+            header.hero-gradient [class*="-right-12"] {
+                right: -8px !important;
+            }
+
+            header.hero-gradient .h-14.w-14 {
+                height: 2.5rem !important;
+                width: 2.5rem !important;
+            }
+
+            header.hero-gradient .h-14.w-14 i {
+                font-size: 1.25rem !important;
+            }
+
+            /* Shrink floating decorative icons */
+            header.hero-gradient .absolute.-bottom-5,
+            header.hero-gradient [class*="-bottom-5"][class*="-right-5"] {
+                display: none !important;
+            }
+
+            header.hero-gradient .absolute.-top-5,
+            header.hero-gradient [class*="-top-5"][class*="-left-5"] {
+                display: none !important;
+            }
+
+            /* Hero buttons */
+            header.hero-gradient .flex.space-x-4 a {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            /* --- Section Titles --- */
+            .section-title {
+                font-size: 1.6rem !important;
+            }
+
+            section h2.text-3xl {
+                font-size: 1.6rem !important;
+            }
+
+            /* --- About Section --- */
+            #about .text-2xl {
+                font-size: 1.3rem;
+            }
+
+            #about .text-3xl.font-bold {
+                font-size: 1.6rem;
+            }
+
+            /* Stat cards: 2-column grid */
+            #about .flex.flex-wrap.gap-4 {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+            }
+
+            #about .flex.flex-wrap.gap-4>div {
+                min-width: unset !important;
+            }
+
+            /* --- Experience Cards --- */
+            .experience-card .md\:w-1\/4 {
+                padding: 1.5rem !important;
+            }
+
+            .experience-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .experience-card .text-xl {
+                font-size: 1rem;
+            }
+
+            /* Reduce section padding on mobile */
+            section.py-20 {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+
+            section .mb-16 {
+                margin-bottom: 2rem;
+            }
+
+            /* --- Positioning Map & Skill Mix Charts --- */
+            #world-map .wm-chart-container,
+            #skill-mix .wm-chart-container {
+                transform: scale(0.82);
+                transform-origin: top center;
+                margin-bottom: -40px;
+            }
+
+            /* Hide sub-labels on very small screens */
+            .wm-dot-label-sub {
+                display: none;
+            }
+
+            .wm-dot-label-name {
+                font-size: 0.55rem !important;
+                white-space: nowrap;
+            }
+
+            .wm-dot-circle {
+                width: 30px !important;
+                height: 30px !important;
+            }
+
+            .wm-dot-circle i {
+                font-size: 13px !important;
+            }
+
+            .wm-qlabel {
+                font-size: 0.4rem !important;
+            }
+
+            .wm-label {
+                font-size: 0.5rem !important;
+            }
+
+            /* Chart wrapper padding */
+            #world-map [style*="padding: 40px"],
+            #skill-mix [style*="padding: 40px"] {
+                padding: 20px 10px !important;
+            }
+
+            /* Hide the floating tagline callout on mobile */
+            #skill-mix .wm-chart-container>div[style*="position:absolute"][style*="white-space:nowrap"] {
+                display: none !important;
+            }
+
+            /* --- Project Cards --- */
+            .project-summary-card {
+                margin-bottom: 1rem;
+            }
+
+            /* Project detail buttons — ensure wrapping */
+            .project-detail-card .flex.justify-center {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem !important;
+            }
+
+            .project-detail-card .pdf-badge {
+                width: 100%;
+                text-align: center;
+                display: block;
+            }
+
+            .project-detail-card .project-content {
+                padding: 1.25rem !important;
+            }
+
+            .project-detail-card h3 {
+                font-size: 1.25rem;
+            }
+
+            .project-detail-card table {
+                font-size: 0.75rem;
+            }
+
+            /* --- Value Proposition Section --- */
+            #value h3 {
+                font-size: 1.3rem;
+            }
+
+            .calculator-container {
+                padding: 15px;
+            }
+
+            /* --- Skills Section --- */
+            #skills .text-2xl {
+                font-size: 1.2rem;
+            }
+
+            /* --- Contact Section --- */
+            #contact h2 {
+                font-size: 1.6rem;
+            }
+
+            #contact .text-2xl {
+                font-size: 1.3rem;
+            }
+
+            /* --- AI Chatbot FAB --- */
+            .assistant-container {
+                bottom: 16px !important;
+                right: 16px !important;
+            }
+
+            .assistant-button {
+                width: 48px !important;
+                height: 48px !important;
+            }
+
+            .assistant-button i {
+                font-size: 1.1rem;
+            }
+
+            .assistant-chat {
+                width: 290px !important;
+                bottom: 65px !important;
+            }
+
+            /* --- General Mobile Polish --- */
+            .max-w-7xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            /* Prevent horizontal overflow */
+            body {
+                overflow-x: hidden;
+            }
+
+            /* Smooth scroll on iOS */
+            html {
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        /* ===== Extra small phones (≤375px, iPhone SE) ===== */
+        @media (max-width: 375px) {
+            header.hero-gradient h1 {
+                font-size: 1.7rem !important;
+            }
+
+            header.hero-gradient h2 {
+                font-size: 1.1rem !important;
+            }
+
+            header.hero-gradient .w-64,
+            header.hero-gradient .md\:w-80 {
+                width: 9rem !important;
+                height: 9rem !important;
+            }
+
+            .section-title,
+            section h2.text-3xl {
+                font-size: 1.4rem !important;
+            }
+
+            #world-map .wm-chart-container,
+            #skill-mix .wm-chart-container {
+                transform: scale(0.72);
+                margin-bottom: -60px;
+            }
+
+            .intro-text-container {
+                font-size: 1.6rem;
+            }
+        }
     </style>
 </head>
 
