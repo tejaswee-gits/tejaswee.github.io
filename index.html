@@ -1446,6 +1446,11 @@
         .hector-bg {
             background-image: url('images/hector-project-bg.png') !important;
         }
+
+        /* Trading Automation Background */
+        .trading-bg {
+            background-image: url('images/trading-bot-bg.png') !important;
+        }
     </style>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -2529,6 +2534,21 @@
                         </div>
                     </div>
 
+                    <!-- Project Summary: AI Trading Bot -->
+                    <div class="project-summary-card" data-project-id="trading-bot">
+                        <div class="h-48 bg-cover bg-center trading-bg"></div>
+                        <div class="p-6">
+                            <div class="mb-2">
+                                <span class="project-summary-tag !bg-rose-100 !text-rose-800"><i class="fas fa-brain mr-1"></i> AI Project</span>
+                                <span class="project-summary-tag !bg-emerald-100 !text-emerald-800">Finance</span>
+                                <span class="project-summary-tag !bg-indigo-100 !text-indigo-800">LangGraph</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 mt-2 text-gray-800">Autonomous AI Hedge Fund</h3>
+                            <p class="text-sm text-gray-600 mb-4 line-clamp-3">A multi-agent architecture using 5 top-tier AI models analyzing live market and visual chart data as independent traders to make high-conviction, automated investment decisions.</p>
+                            <div class="text-right text-emerald-600 text-sm font-medium hover:underline">View Details <i class="fas fa-arrow-right ml-1 text-xs"></i></div>
+                        </div>
+                    </div>
+
                     <!-- Project Summary: SmartCV Engine -->
                     <div class="project-summary-card" data-project-id="smartcv">
                         <div class="h-48 bg-cover bg-center smartcv-bg"></div>
@@ -3484,6 +3504,45 @@
                     </div>
                 </div>
 
+                <!-- DETAILED VIEW: Trading Automation -->
+                <div id="project-detail-trading-bot" class="project-detail-card hidden">
+                    <div class="trading-bg project-image"></div>
+                    <div class="project-content">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="bg-rose-100 text-rose-800 text-xs px-3 py-1 rounded-full font-medium"><i class="fas fa-brain mr-1"></i> AI Project</span>
+                                <span class="bg-emerald-100 text-emerald-800 text-xs px-3 py-1 rounded-full font-medium ml-2">Algorithmic Trading</span>
+                            </div>
+                            <span class="text-gray-500 text-sm"><i class="fas fa-chart-line mr-1"></i> Finance Tool</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Autonomous AI Hedge Fund</h3>
+                        
+                        <div class="mb-6 border-l-4 border-emerald-500 pl-4 bg-emerald-50 py-3 pr-3 rounded-r-lg">
+                            <h4 class="font-bold text-gray-800 mb-1">What is it?</h4>
+                            <p class="text-sm text-gray-700">A completely automated trading bot leveraging 5 independent, top-tier AI models (like Llama 3.3, DeepSeek V3, Qwen) orchestrated via LangGraph to read live stock data, analyze charts, and push high-conviction trading signals directly to Telegram.</p>
+                        </div>
+
+                        <div class="mb-6 border-l-4 border-indigo-500 pl-4 bg-indigo-50 py-3 pr-3 rounded-r-lg">
+                            <h4 class="font-bold text-gray-800 mb-1">Why was it built? (The Logic)</h4>
+                            <p class="text-sm text-gray-700">Traditional multi-AI setups force models to collaborate, which leads to "yes-man" hallucination bias. This project treats each model as an isolated, strict hedge fund manager. They are forbidden from over-complicating technicals and must pass rigorous fundamental "quality filters" before executing any trade. If in doubt, they are instructed to issue a safe `HOLD` signal.</p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="font-bold mb-2 text-gray-800">Core Architecture:</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li><strong>The Data Foundation:</strong> Ingests live institutional-grade market data directly via the FMP API and plots real-time candlestick charts.</li>
+                                <li><strong>The Multi-Agent Brain:</strong> Built on LangGraph for structured, concurrent (async) parallel routing. It avoids AI timeout deadlocks gracefully.</li>
+                                <li><strong>Multimodal Analysis:</strong> Combines dense fundamental metrics with visual chart reading using vision-capable LLMs for comprehensive technical evaluation.</li>
+                                <li><strong>Robotic Orchestration:</strong> The AI logic exports clean `trading_signal.json` decisions, picked up by n8n to autonomously operate reporting via Webhooks and Telegram.</li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-4 border-t pt-4 flex justify-center items-center gap-4">
+                            <button class="close-detail-btn text-red-500 hover:text-red-700 text-sm font-medium">Close Details <i class="fas fa-times ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- DETAILED VIEW: Hector -->
                 <div id="project-detail-hector" class="project-detail-card hidden">
                     <div class="hector-bg project-image"></div>
@@ -4170,7 +4229,8 @@
             { name: "Nykaa Strategy", keywords: ["fashion", "beauty", "cosmetics", "ecommerce", "strategy", "retail", "women", "brand"], id: "nykaa" },
             { name: "Bijouterie Pala", keywords: ["luxury", "jewelry", "website", "design", "ui", "ux", "premium", "digital"], id: "bijou" },
             { name: "Caveman's BBQ", keywords: ["food", "branding", "restaurant", "social", "community", "viral", "creative"], id: "bbq" },
-            { name: "Hector Advance Video Generator", keywords: ["ai", "video", "generator", "open source", "local", "models", "gpu", "ui"], id: "hector" }
+            { name: "Hector Advance Video Generator", keywords: ["ai", "video", "generator", "open source", "local", "models", "gpu", "ui"], id: "hector" },
+            { name: "Autonomous AI Hedge Fund", keywords: ["ai", "finance", "trading", "bot", "algorithm", "langgraph", "agents", "stocks", "automation"], id: "trading-bot" }
         ];
 
         // General Knowledge for Answers
