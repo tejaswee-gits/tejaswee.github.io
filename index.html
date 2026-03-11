@@ -1444,7 +1444,7 @@
 
         /* Hector Project Background */
         .hector-bg {
-            background-image: url('https://placehold.co/1200x600/1e1b4b/818cf8.png?text=Hector+Dashboard+Overview') !important;
+            background-image: url('images/hector-project-bg.png') !important;
         }
     </style>
     <!-- Microsoft Clarity -->
@@ -2514,12 +2514,28 @@
                 <!-- Project Summary Cards Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
+                    <!-- Project Summary: Hector -->
+                    <div class="project-summary-card" data-project-id="hector">
+                        <div class="h-48 bg-cover bg-center hector-bg"></div>
+                        <div class="p-6">
+                            <div class="mb-2">
+                                <span class="project-summary-tag !bg-rose-100 !text-rose-800"><i class="fas fa-brain mr-1"></i> AI Project</span>
+                                <span class="project-summary-tag !bg-indigo-100 !text-indigo-800">Video Generation</span>
+                                <span class="project-summary-tag !bg-purple-100 !text-purple-800">Open Source</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 mt-2 text-gray-800">Hector: Advance Local Video Studio</h3>
+                            <p class="text-sm text-gray-600 mb-4 line-clamp-3">Run top-tier AI video models like Wan & Hunyuan right on your local PC. It's an easy, all-in-one workspace designed to work smoothly even on standard hardware.</p>
+                            <div class="text-right text-indigo-600 text-sm font-medium hover:underline">View Details <i class="fas fa-arrow-right ml-1 text-xs"></i></div>
+                        </div>
+                    </div>
+
                     <!-- Project Summary: SmartCV Engine -->
                     <div class="project-summary-card" data-project-id="smartcv">
                         <div class="h-48 bg-cover bg-center smartcv-bg"></div>
                         <div class="p-6">
                             <div class="mb-2">
-                                <span class="project-summary-tag !bg-violet-100 !text-violet-800">AI Automation</span>
+                                <span class="project-summary-tag !bg-rose-100 !text-rose-800"><i class="fas fa-brain mr-1"></i> AI Project</span>
+                                <span class="project-summary-tag !bg-violet-100 !text-violet-800">Automation</span>
                                 <span class="project-summary-tag !bg-cyan-100 !text-cyan-800">Workflow</span>
                             </div>
                             <h3 class="text-lg font-semibold mb-2 mt-2 text-gray-800">🔧 SmartCV Engine</h3>
@@ -2684,19 +2700,7 @@
                         </div>
                     </div>
 
-                    <!-- Project Summary: Hector -->
-                    <div class="project-summary-card" data-project-id="hector">
-                        <div class="h-48 bg-cover bg-center hector-bg"></div>
-                        <div class="p-6">
-                            <div class="mb-2">
-                                <span class="project-summary-tag !bg-indigo-100 !text-indigo-800">AI Video Gen</span>
-                                <span class="project-summary-tag !bg-purple-100 !text-purple-800">Open Source</span>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-2 mt-2 text-gray-800">Hector</h3>
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-3">Unified platform bringing the absolute best open-source AI video models into a single, effortless workspace that runs locally.</p>
-                            <div class="text-right text-indigo-600 text-sm font-medium hover:underline">View Details <i class="fas fa-arrow-right ml-1 text-xs"></i></div>
-                        </div>
-                    </div>
+
 
                     <!-- Add more summary cards if needed -->
                     <div
@@ -3482,18 +3486,18 @@
 
                 <!-- DETAILED VIEW: Hector -->
                 <div id="project-detail-hector" class="project-detail-card hidden">
-                    <div class="hector-bg project-image" style="background-image: url('https://placehold.co/1200x600/1e1b4b/818cf8.png?text=Hector+Dashboard+Overview');"></div>
+                    <div class="hector-bg project-image"></div>
                     <div class="project-content">
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full font-medium">AI Video Generator</span>
-                                <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full font-medium ml-2">Open Source</span>
+                                <span class="bg-rose-100 text-rose-800 text-xs px-3 py-1 rounded-full font-medium"><i class="fas fa-brain mr-1"></i> AI Project</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full font-medium ml-2">Video Generation</span>
                             </div>
                             <span class="text-gray-500 text-sm"><i class="fas fa-robot mr-1"></i> Software Tool</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Hector: Advance Video Generator</h3>
-                        <p class="text-gray-700 mb-4">The ultimate unified platform. It solves the chaos by bringing the absolute best open-source AI models together into a single, beautiful, and effortless workspace that runs <em>locally</em> right on your PC.</p>
-                        <p class="text-gray-700 mb-6">Built for the "GPU Poor", Hector democratizes AI. Through advanced optimization techniques, it takes massive models and squishes them down so they run smoothly even on standard consumer PCs (down to just 6GB of VRAM).</p>
+                        <h3 class="text-2xl font-bold mb-4">Hector: Advance Local Video Studio</h3>
+                        <p class="text-gray-700 mb-4">Run the absolute best open-source AI models together in a single, effortless workspace that runs <em>locally</em> right on your PC. No more navigating confusing setups or paying expensive cloud fees.</p>
+                        <p class="text-gray-700 mb-6">Built to democratize AI, Hector uses clever optimizations so massive visual models (like Wan and Hunyuan) run smoothly on your home computer (down to just 6GB of VRAM).</p>
 
                         <div class="mb-6">
                             <h4 class="font-bold mb-2 text-gray-800">What Can Hector Do?</h4>
