@@ -1451,6 +1451,11 @@
         .trading-bg {
             background-image: url('images/trading-bot-bg.png') !important;
         }
+
+        /* Fleetback Project Background */
+        .fleetback-bg {
+            background-image: url('images/fleetback-card.png') !important;
+        }
     </style>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -2519,6 +2524,21 @@
                 <!-- Project Summary Cards Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
+                    <!-- Project Summary: Fleetback SaaS -->
+                    <div class="project-summary-card" data-project-id="fleetback">
+                        <div class="h-48 bg-cover bg-center fleetback-bg"></div>
+                        <div class="p-6">
+                            <div class="mb-2">
+                                <span class="project-summary-tag !bg-blue-100 !text-blue-800"><i class="fas fa-car mr-1"></i> Automotive</span>
+                                <span class="project-summary-tag !bg-indigo-100 !text-indigo-800">SaaS Platfrom</span>
+                                <span class="project-summary-tag !bg-emerald-100 !text-emerald-800">After-Sales</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 mt-2 text-gray-800">Fleetback: Engineering the Trust Gap</h3>
+                            <p class="text-sm text-gray-600 mb-4 line-clamp-3">A specialized SaaS platform digitalizing the automotive after-sales journey. Building trust through transparent video-based repair evidence and streamlined digital customer flows.</p>
+                            <div class="text-right text-blue-600 text-sm font-medium hover:underline">View Details <i class="fas fa-arrow-right ml-1 text-xs"></i></div>
+                        </div>
+                    </div>
+
                     <!-- Project Summary: Hector -->
                     <div class="project-summary-card" data-project-id="hector">
                         <div class="h-48 bg-cover bg-center hector-bg"></div>
@@ -2742,6 +2762,81 @@
             <!-- Light blue background when shown -->
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Detailed project cards will be loaded here by JavaScript -->
+
+                <!-- DETAILED VIEW: Fleetback SaaS -->
+                <div id="project-detail-fleetback" class="project-detail-card hidden">
+                    <div class="fleetback-bg project-image"></div>
+                    <div class="project-content">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full font-medium">SaaS Platform</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full font-medium ml-2">Digital Transformation</span>
+                            </div>
+                            <span class="text-gray-500 text-sm"><i class="fas fa-briefcase mr-1"></i> Business Case</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Fleetback After-Sales: Engineering the Trust Gap</h3>
+                        <p class="text-gray-700 mb-6">Fleetback is a comprehensive SaaS solution designed to revolutionize the automotive after-sales experience. By digitalizing the interaction between workshops and vehicle owners, it addresses the fundamental "trust gap" in the industry.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h4 class="font-bold mb-3 text-gray-800 flex items-center"><i class="fas fa-lightbulb mr-2 text-amber-500"></i> The Solution Description</h4>
+                                <p class="text-gray-700 text-sm leading-relaxed mb-4">
+                                    The platform provides a seamless <strong>end-to-end digital journey</strong>:
+                                </p>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-600 text-sm">
+                                    <li><strong>Transparency:</strong> Mechanics send personalized videos/photos of required repairs directly to the customer's phone.</li>
+                                    <li><strong>Efficiency:</strong> Instant repair approvals and integrated online payments (Stripe/BMW Pay).</li>
+                                    <li><strong>Engagement:</strong> Real-time status tracking and bidirectional chat between advisors and owners.</li>
+                                    <li><strong>Self-Service:</strong> Digital check-in/out and appointment management terminals.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 shadow-inner">
+                                <h4 class="font-bold mb-3 text-gray-800 text-center">Solution in Action</h4>
+                                <div class="aspect-video bg-black rounded-lg overflow-hidden shadow-lg border border-gray-200">
+                                    <video controls class="w-full h-full object-cover">
+                                        <source src="fleetback-after-sales.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <p class="text-[10px] text-gray-400 mt-2 text-center italic">Watch how Fleetback bridges the trust gap through digital evidence.</p>
+                            </div>
+                        </div>
+
+                        <div class="mb-8">
+                            <h4 class="font-bold mb-4 text-gray-800">SaaS Business Model Insights:</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-100 text-center">
+                                    <i class="fas fa-sync text-emerald-600 mb-1"></i>
+                                    <p class="text-[10px] font-bold text-emerald-800 uppercase">Recurring</p>
+                                    <p class="text-[9px] text-gray-600">Subscription-based ROI</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 text-center">
+                                    <i class="fas fa-chart-pie text-blue-600 mb-1"></i>
+                                    <p class="text-[10px] font-bold text-blue-800 uppercase">Performance</p>
+                                    <p class="text-[9px] text-gray-600">KPI & Lead Tracking</p>
+                                </div>
+                                <div class="bg-purple-50 p-3 rounded-lg border border-purple-100 text-center">
+                                    <i class="fas fa-puzzle-piece text-purple-600 mb-1"></i>
+                                    <p class="text-[10px] font-bold text-purple-800 uppercase">Scalable</p>
+                                    <p class="text-[9px] text-gray-600">DMS Ecosystem Integration</p>
+                                </div>
+                                <div class="bg-amber-50 p-3 rounded-lg border border-amber-100 text-center">
+                                    <i class="fas fa-smile text-amber-600 mb-1"></i>
+                                    <p class="text-[10px] font-bold text-amber-800 uppercase">Retention</p>
+                                    <p class="text-[9px] text-gray-600">Enhanced Customer LTV</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 border-t pt-4 flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="bg-gray-100 text-gray-600 text-[10px] px-2 py-1 rounded">B2B SaaS</span>
+                                <span class="bg-gray-100 text-gray-600 text-[10px] px-2 py-1 rounded">Automotive Tech</span>
+                            </div>
+                            <button class="close-detail-btn text-red-500 hover:text-red-700 text-sm font-medium">Close Details <i class="fas fa-times ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
                 <!-- Structure copied from Projects page, adapted -->
 
                 <!-- DETAILED VIEW: Quick Commerce Intel -->
