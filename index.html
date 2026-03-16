@@ -14,29 +14,45 @@
         gtag('config', 'G-N5LW68XC9X');
     </script>
 
-    <!-- Updated Title for Combined Page -->
-    <title>Tejaswee Singh | Digital Marketing Portfolio & Projects</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Tejaswee Singh | Strategic E-Commerce & AI Marketing Leader</title>
+    <meta name="description" content="Portfolio of Tejaswee Singh, specializing in E-commerce strategy, AI-driven marketing, and business analytics. Former Nissan and L'Oréal professional.">
+    <meta property="og:title" content="Tejaswee Singh | Digital Strategist">
+    <meta property="og:description" content="Transforming data into growth through E-commerce and AI.">
+    <meta property="og:image" content="assets/images/tejaswee-profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* Impeccable Color System (OKLCH) */
+            --bg-primary: oklch(98% 0.01 220);
+            --text-primary: oklch(25% 0.02 220);
+            --text-muted: oklch(45% 0.02 220);
+            --accent-primary: oklch(55% 0.16 240); /* Deep Blue */
+            --accent-secondary: oklch(65% 0.2 280); /* Refined Purple */
+            --surface: oklch(100% 0 0);
+            --border: oklch(90% 0.01 220);
+            
+            /* Typography */
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
         /* --- Combined Styles from Both Pages --- */
 
         /* Base Styles */
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8fafc;
-            /* Lighter gray background */
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             scroll-behavior: smooth;
         }
 
         /* Hero Gradient & Backgrounds */
         .hero-gradient {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
         }
 
         .animated-bg {
@@ -55,7 +71,7 @@
             /* From Home */
             position: absolute;
             border-radius: 50%;
-            background: rgba(59, 130, 246, 0.1);
+            background: oklch(60% 0.15 240 / 0.1);
             animation: float 15s infinite linear;
         }
 
@@ -92,17 +108,17 @@
         }
 
         .qcomm-bg {
-            background: url('images/A_cinematic_wideangle_2k_202602150542.jpeg') center/cover;
+            background: url('assets/images/A_cinematic_wideangle_2k_202602150542.jpeg') center/cover;
         }
 
         .smartcv-bg {
-            background: url('images/smartcv-workflow.png') center/cover;
+            background: url('assets/images/smartcv-workflow.png') center/cover;
         }
 
         /* Typography & Titles */
         .section-title {
             /* From Home */
-            font-family: 'Playfair Display', serif;
+            font-family: var(--font-display);
             position: relative;
             display: inline-block;
         }
@@ -115,7 +131,7 @@
             bottom: -8px;
             width: 50px;
             height: 3px;
-            background: #3b82f6;
+            background: var(--accent-primary);
         }
 
         /* Card Styles */
@@ -268,9 +284,9 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: #3b82f6;
+            background: var(--accent-primary);
             border: 2px solid white;
-            box-shadow: 0 0 0 3px #3b82f6;
+            box-shadow: 0 0 0 3px var(--accent-primary);
             /* Outer ring */
         }
 
@@ -310,13 +326,13 @@
             /* Lower underline */
             width: 0;
             height: 2px;
-            background: #3b82f6;
+            background: var(--accent-primary);
             transition: width 0.3s ease;
         }
 
         .nav-link:hover,
         .nav-link.active {
-            color: #3b82f6;
+            color: var(--accent-primary);
             /* Blue on hover/active */
         }
 
@@ -339,7 +355,7 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+            background: linear-gradient(135deg, var(--accent-primary) 0%, oklch(20% 0.1 240) 100%);
             color: white;
             display: flex;
             align-items: center;
@@ -380,7 +396,7 @@
 
         /* Add other assistant styles here if needed */
         .chat-header {
-            background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+            background: linear-gradient(135deg, var(--accent-primary) 0%, oklch(20% 0.1 240) 100%);
             color: white;
             padding: 15px;
             display: flex;
@@ -412,7 +428,7 @@
         }
 
         .user-message {
-            background: #3b82f6;
+            background: var(--accent-primary);
             color: white;
             border-bottom-right-radius: 5px;
             margin-left: auto;
@@ -434,7 +450,7 @@
         }
 
         .chat-input button {
-            background: #3b82f6;
+            background: var(--accent-primary);
             color: white;
             border: none;
             border-radius: 50%;
@@ -461,7 +477,7 @@
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 20px;
-            color: #1e3a8a;
+            color: oklch(20% 0.1 240);
         }
 
         .calculator-input {
@@ -488,13 +504,13 @@
 
         .calculator-input input:focus,
         .calculator-input select:focus {
-            border-color: #3b82f6;
+            border-color: var(--accent-primary);
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
         }
 
         .calculator-result {
             background: #eff6ff;
-            border-left: 4px solid #3b82f6;
+            border-left: 4px solid var(--accent-primary);
             padding: 15px;
             border-radius: 8px;
             margin-top: 20px;
@@ -513,7 +529,7 @@
             padding: 15px;
             border-radius: 8px;
             background: #f0f9ff;
-            border-left: 4px solid #3b82f6;
+            border-left: 4px solid var(--accent-primary);
         }
 
         /* Animations */
@@ -594,7 +610,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            background: linear-gradient(135deg, oklch(20% 0.1 240) 0%, var(--accent-primary) 100%);
             z-index: 10000;
             display: flex;
             justify-content: center;
@@ -889,7 +905,7 @@
         }
 
         .wm-label-top .wm-arrow {
-            color: #3b82f6;
+            color: var(--accent-primary);
         }
 
         .wm-label-bottom {
@@ -899,7 +915,7 @@
         }
 
         .wm-label-bottom .wm-arrow {
-            color: #3b82f6;
+            color: var(--accent-primary);
         }
 
         .wm-label-left {
@@ -910,7 +926,7 @@
         }
 
         .wm-label-left .wm-arrow {
-            color: #3b82f6;
+            color: var(--accent-primary);
         }
 
         .wm-label-right {
@@ -921,7 +937,7 @@
         }
 
         .wm-label-right .wm-arrow {
-            color: #3b82f6;
+            color: var(--accent-primary);
         }
 
         /* Quadrant corner labels */
@@ -938,7 +954,7 @@
         .wm-qlabel-tl {
             top: 12px;
             left: 14px;
-            color: #3b82f6;
+            color: var(--accent-primary);
         }
 
         .wm-qlabel-tr {
@@ -1064,7 +1080,7 @@
         .wm-tooltip-cta {
             font-size: 0.68rem;
             font-weight: 600;
-            color: #3b82f6;
+            color: var(--accent-primary);
         }
 
         .wm-tooltip::after {
@@ -1444,12 +1460,12 @@
 
         /* Hector Project Background */
         .hector-bg {
-            background-image: url('images/hector-project-bg.png') !important;
+            background-image: url('assets/images/hector-project-bg.png') !important;
         }
 
         /* Trading Automation Background */
         .trading-bg {
-            background-image: url('images/trading-bot-bg.png') !important;
+            background-image: url('assets/images/trading-bot-bg.png') !important;
         }
     </style>
     <!-- Microsoft Clarity -->
@@ -1555,7 +1571,7 @@
                         <div
                             class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 overflow-hidden border-4 border-white shadow-xl floating">
                             <!-- MAKE SURE this image path is correct! -->
-                            <img src="tejaswee-profile.jpg" alt="Tejaswee Singh" class="w-full h-full object-cover">
+                            <img src="assets/images/tejaswee-profile.jpg" alt="Tejaswee Singh" class="w-full h-full object-cover">
                         </div>
 
                         <!-- GitHub Link with Pop-up -->
@@ -2421,7 +2437,7 @@
 
                         <!-- SQL & Data Analysis -->
                         <div class="wm-dot" style="left:30%; top:56%;" data-target="skills">
-                            <div class="wm-dot-circle" style="background:#2563eb;">
+                            <div class="wm-dot-circle" style="background:var(--accent-primary);">
                                 <i class="fas fa-database" style="color:#fff;"></i>
                             </div>
                             <div class="wm-dot-label">
@@ -2453,7 +2469,7 @@
 
                         <!-- Excel / Sheets -->
                         <div class="wm-dot" style="left:30%; top:76%;" data-target="skills">
-                            <div class="wm-dot-circle" style="background:#3b82f6;">
+                            <div class="wm-dot-circle" style="background:var(--accent-primary);">
                                 <i class="fas fa-file-excel" style="color:#fff;"></i>
                             </div>
                             <div class="wm-dot-label">
@@ -3231,9 +3247,9 @@
                             <h4 class="font-bold mb-2 text-gray-800">Presentation Slides (Preview):</h4>
                             <div
                                 class="w-full h-[400px] bg-gray-100 rounded-lg overflow-hidden border border-gray-200 shadow-inner">
-                                <iframe src="Nykaa_Strategy.pdf" class="w-full h-full" frameborder="0">
+                                <iframe src="assets/docs/Nykaa_Strategy.pdf" class="w-full h-full" frameborder="0">
                                     <p class="text-center p-4">Your browser does not support PDF embedding. <a
-                                            href="Nykaa_Strategy.pdf" class="text-blue-600 hover:underline">Download the
+                                            href="assets/docs/Nykaa_Strategy.pdf" class="text-blue-600 hover:underline">Download the
                                             PDF</a> to view it.</p>
                                 </iframe>
                             </div>
@@ -3243,9 +3259,9 @@
                             <a href="nykaa-study.html" target="_blank"
                                 class="pdf-badge !bg-pink-600 !text-white hover:!bg-pink-700">View Full Study <i
                                     class="fas fa-external-link-alt ml-1 text-xs"></i></a>
-                            <a href="Nykaa_Strategy.pdf" download class="pdf-badge">Download PDF <i
+                            <a href="assets/docs/Nykaa_Strategy.pdf" download class="pdf-badge">Download PDF <i
                                     class="fas fa-file-pdf ml-1 text-xs"></i></a>
-                            <a href="Nykaa_Strategy.pptx" download
+                            <a href="assets/docs/Nykaa_Strategy.pptx" download
                                 class="pdf-badge !bg-gray-100 !text-gray-700 hover:!bg-gray-200">PPTX <i
                                     class="fas fa-file-powerpoint ml-1 text-xs"></i></a>
                             <button class="close-detail-btn text-red-500 hover:text-red-700 text-sm font-medium">Close
