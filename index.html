@@ -4707,6 +4707,200 @@
         </div>
     </div>
 
+    <!-- Pretext Integration for Mobile Typography Tweaks -->
+    <script type="module">
+        import { prepareWithSegments, measureLineStats, walkLineRanges } from 'https://esm.sh/@chenglou/pretext';
+
+        function getCanvasFont(el) {
+            const style = window.getComputedStyle(el);
+            const fontWeight = style.fontWeight || 'normal';
+            const fontSize = style.fontSize || '16px';
+            const fontFamily = style.fontFamily || 'sans-serif';
+            return `${fontWeight} ${fontSize} ${fontFamily}`;
+        }
+
+        // Hero Balancing
+        function balanceText(el) {
+            el.style.maxWidth = 'none'; // reset previous calculations
+            
+            const containerWidth = el.parentElement.clientWidth;
+            if (!containerWidth || containerWidth === 0) return;
+
+            const text = el.innerText || el.textContent;
+            const font = getCanvasFont(el);
+            
+            const prepared = prepareWithSegments(text, font);
+            const baseStats = measureLineStats(prepared, containerWidth);
+            const targetLines = baseStats.lineCount;
+
+            if (targetLines <= 1) return; // No wrapping occurred, nothing to balance
+
+            let min = 0;
+            let max = containerWidth;
+            let bestWidth = containerWidth;
+
+            // Binary search to find the narrowest width that retains the same amount of lines
+            while (min <= max) {
+                let mid = Math.floor((min + max) / 2);
+                let stats = measureLineStats(prepared, mid);
+                
+                if (stats.lineCount <= targetLines) {
+                    bestWidth = mid;
+                    max = mid - 1; // try to tighten it
+                } else {
+                    min = mid + 1; // too narrow!
+                }
+            }
+
+            // Shrink-wrap perfectly to the widest line produced at the new balanced width constraint
+            let finalMaxW = 0;
+            walkLineRanges(prepared, bestWidth, line => { 
+                if (line.width > finalMaxW) finalMaxW = line.width; 
+            });
+
+            // Adjust element style to enforce balancing
+            el.style.maxWidth = Math.ceil(finalMaxW) + 'px';
+            el.style.display = 'inline-block';
+        }
+
+        // Smart Text Truncation using Pretext
+        function smartTruncate(el, maxLines = 3) {
+            // Wait for element to be visible and measurable
+            const containerWidth = el.clientWidth;
+            if (!containerWidth || containerWidth === 0) return;
+
+            // Get original text, store it on the dataset so we don't lose it to CSS clamping
+            if (!el.dataset.originalText) {
+                el.dataset.originalText = el.textContent.trim();
+            }
+            
+            const text = el.dataset.originalText;
+            const font = getCanvasFont(el);
+            
+            const prepared = prepareWithSegments(text, font);
+            const stats = measureLineStats(prepared, containerWidth);
+
+            // Is it exceeding maxLines?
+            if (stats.lineCount > maxLines) {
+                // Ensure the paragraph itself is clamped
+                el.classList.add('line-clamp-' + maxLines);
+                if (!el.classList.contains('line-clamp-custom')) {
+                    // we can add a utility class
+                    el.style.display = '-webkit-box';
+                    el.style.webkitBoxOrient = 'vertical';
+                    el.style.webkitLineClamp = maxLines;
+                    el.style.overflow = 'hidden';
+                    el.classList.add('line-clamp-custom');
+                }
+
+                // Check if Read More button already exists
+                let btnWrapper = el.nextElementSibling;
+                if (!btnWrapper || !btnWrapper.classList.contains('smart-read-more-wrapper')) {
+                    btnWrapper = document.createElement('div');
+                    btnWrapper.className = 'smart-read-more-wrapper mt-1 text-left w-full';
+                    
+                    const btn = document.createElement('button');
+                    btn.className = 'text-indigo-600 dark:text-indigo-400 font-semibold text-sm hover:underline focus:outline-none transition-colors';
+                    btn.innerText = 'Read More';
+                    
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        // Toggle line clamp
+                        if (el.style.webkitLineClamp) {
+                            el.style.webkitLineClamp = 'unset';
+                            el.style.display = 'block';
+                            btn.innerText = 'Read Less';
+                        } else {
+                            el.style.display = '-webkit-box';
+                            el.style.webkitBoxOrient = 'vertical';
+                            el.style.webkitLineClamp = maxLines;
+                            el.style.overflow = 'hidden';
+                            btn.innerText = 'Read More';
+                        }
+                    });
+
+                    btnWrapper.appendChild(btn);
+                    el.parentNode.insertBefore(btnWrapper, el.nextSibling);
+                }
+            } else {
+                // Remove clamp if it doesn't need to overflow
+                el.style.webkitLineClamp = 'unset';
+                el.style.display = 'block';
+                el.style.overflow = 'visible';
+                
+                // Remove existing button if window resized and we no longer need it
+                if (el.nextElementSibling && el.nextElementSibling.classList.contains('smart-read-more-wrapper')) {
+                    el.nextElementSibling.remove();
+                }
+            }
+        }
+
+        function initPretext() {
+            const isMobile = window.innerWidth < 768;
+            
+            function updateLayouts() {
+                // 1. Balance the Hero Strategy subtitle
+                const heroSubtitle = document.querySelector('header.hero-gradient h2');
+                if (heroSubtitle) {
+                    balanceText(heroSubtitle);
+                    if (window.innerWidth < 768) {
+                        heroSubtitle.style.marginLeft = 'auto';
+                        heroSubtitle.style.marginRight = 'auto';
+                    } else {
+                        heroSubtitle.style.marginLeft = '0';
+                        heroSubtitle.style.marginRight = '0';
+                    }
+                }
+
+                // 2. Smart text truncation for project cards
+                // Usually paragraphs in project summaries have line-clamp-3
+                const projectParagraphs = document.querySelectorAll('.project-summary-card p');
+                projectParagraphs.forEach(p => {
+                    // Strip the native tailwind class so pretext can manage it via JS
+                    p.classList.remove('line-clamp-3');
+                    smartTruncate(p, 3);
+                });
+
+                // 3. Smart text truncation for experience card descriptions
+                // We'll target the detailed lists in the experience cards on mobile
+                if (isMobile) {
+                    const experienceLists = document.querySelectorAll('.experience-card ul');
+                    experienceLists.forEach(ul => {
+                         // On mobile, experience lists can get very long. Let's truncate them to 2 lines per UL
+                         // Or perhaps it's better to truncate the card itself. We'll truncate the list.
+                         smartTruncate(ul, 4);
+                    });
+                } else {
+                    // Remove truncation on desktop for experience lists
+                    const experienceLists = document.querySelectorAll('.experience-card ul');
+                    experienceLists.forEach(ul => {
+                         ul.style.webkitLineClamp = 'unset';
+                         ul.style.display = 'block';
+                         ul.style.overflow = 'visible';
+                         if (ul.nextElementSibling && ul.nextElementSibling.classList.contains('smart-read-more-wrapper')) {
+                             ul.nextElementSibling.remove();
+                         }
+                    });
+                }
+            }
+
+            updateLayouts();
+            
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(updateLayouts, 50);
+            });
+        }
+
+        // Run when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initPretext);
+        } else {
+            initPretext();
+        }
+    </script>
 </body>
 
 </html>
